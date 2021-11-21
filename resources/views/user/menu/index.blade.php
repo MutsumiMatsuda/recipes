@@ -44,7 +44,7 @@
                                     <th>{{ $menu->id }}</th>
                                     <td>
                                         @if ($menu->image_path)
-                                        <img width="100px" src="{{ asset('storage/image/menu/' . $menu->image_path) }}">
+                                        <img width="100px" src="{{ Utl::imgPathMenu($menu->image_path) }}">
                                         @endif
                                     </td>
                                     <td>{{ \Str::limit($menu->name, 100) }}</td>
