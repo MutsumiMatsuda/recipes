@@ -23,9 +23,9 @@ class CreateRecipesTable extends Migration
             $table->bigInteger('howto_id')->nullable();
             $table->string('image_path')->nullable();
             $table->string('image_path2')->nullable();
-            $table->boolean('is_easy')->nullable();
-            $table->boolean('is_favorite')->nullable();
-            $table->boolean('is_refresh')->nullable();
+            $table->tinyint('is_easy')->default(0);
+            $table->tinyint('is_favorite')->default(0);
+            $table->tinyint('is_refresh')->default(0);
             $table->timestamps();
         });
     }
