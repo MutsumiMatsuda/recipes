@@ -1,79 +1,5 @@
--- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
---
--- Host: localhost    Database: recipes
--- ------------------------------------------------------
--- Server version	5.7.26
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `difficulties`
---
-
-DROP TABLE IF EXISTS `difficulties`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `difficulties` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `difficulties`
---
-
-LOCK TABLES `difficulties` WRITE;
-/*!40000 ALTER TABLE `difficulties` DISABLE KEYS */;
-INSERT INTO `difficulties` VALUES (1,'簡単料理','2021-10-17 14:44:28','2021-10-17 14:44:28');
-/*!40000 ALTER TABLE `difficulties` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `feelings`
---
-
-DROP TABLE IF EXISTS `feelings`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `feelings` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `feelings`
---
-
-LOCK TABLES `feelings` WRITE;
-/*!40000 ALTER TABLE `feelings` DISABLE KEYS */;
-INSERT INTO `feelings` VALUES (1,'あっさり料理','2021-10-17 14:46:51','2021-10-17 14:46:51');
-/*!40000 ALTER TABLE `feelings` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `howtos`
---
-
 DROP TABLE IF EXISTS `howtos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `howtos` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -81,25 +7,9 @@ CREATE TABLE `howtos` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `howtos`
---
-
-LOCK TABLES `howtos` WRITE;
-/*!40000 ALTER TABLE `howtos` DISABLE KEYS */;
 INSERT INTO `howtos` VALUES (1,'圧力鍋','2021-11-01 20:26:42','2021-11-10 18:17:30'),(2,'オーブン','2021-11-01 20:26:42','2021-11-01 20:26:42'),(3,'レンジ','2021-11-01 20:26:42','2021-11-01 20:26:42'),(4,'蒸し器','2021-11-10 18:17:59','2021-11-10 18:18:15');
-/*!40000 ALTER TABLE `howtos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `material_categories`
---
 
 DROP TABLE IF EXISTS `material_categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `material_categories` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -107,14 +17,7 @@ CREATE TABLE `material_categories` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `material_categories`
---
-
-LOCK TABLES `material_categories` WRITE;
-/*!40000 ALTER TABLE `material_categories` DISABLE KEYS */;
 INSERT INTO `material_categories` VALUES (1,'豆類','2021-11-03 02:04:59','2021-11-03 02:04:59'),(2,'穀類','2021-11-03 02:04:59','2021-11-03 02:04:59'),(3,'野菜','2021-11-03 02:04:59','2021-11-03 02:04:59'),(4,'果実・香辛料類','2021-11-03 02:04:59','2021-11-03 02:04:59'),(5,'きのこ・海藻','2021-11-03 02:04:59','2021-11-03 02:04:59'),(6,'魚','2021-11-03 02:04:59','2021-11-03 02:04:59'),(7,'肉','2021-11-03 02:04:59','2021-11-03 02:04:59'),(8,'嗜好品','2021-11-03 02:04:59','2021-11-03 02:04:59'),(9,'甘味類','2021-11-03 02:04:59','2021-11-03 02:04:59'),(10,'乾物','2021-11-03 02:04:59','2021-11-03 02:04:59'),(11,'油脂・調味料','2021-11-03 02:04:59','2021-11-03 02:04:59'),(12,'乳類','2021-11-03 02:04:59','2021-11-03 02:04:59'),(13,'卵類・たんぱく質','2021-11-03 02:04:59','2021-11-03 02:04:59');
 /*!40000 ALTER TABLE `material_categories` ENABLE KEYS */;
 UNLOCK TABLES;
