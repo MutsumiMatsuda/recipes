@@ -18,9 +18,11 @@ class DatabaseSeeder extends Seeder
          //$this->call(RecipeCategoriesTableSeeder::class);
          //$this->call(DifficultiesTableSeeder::class);
          //$this->call(MaterialrecipesTableSeeder::class);
-         $this->call(TastesTableSeeder::class);
+         //$this->call(TastesTableSeeder::class);
          //$this->call(FeelingsTableSeeder::class);
          //$this->call(HowtosTableSeeder::class);
          //$this->call(MenuSeeder::class);
+        $path = 'database/sql/dump.sql';
+        \DB::unprepared(file_get_contents($path));
     }
 }
