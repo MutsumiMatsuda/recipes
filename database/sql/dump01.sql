@@ -1,0 +1,12 @@
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (1,'魚料理','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (2,'スープ類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (3,'サラダ類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (4,'麺・ごはん類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (5,'肉類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (6,'デザート類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (7,'卵類','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (8,'箸休め','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (9,'行事用','2021-10-21 05:52:08','2021-10-21 05:52:08');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (10,'揚げ物','2021-11-10 17:39:59','2021-11-10 17:39:59');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (11,'エスニック','2021-11-10 17:48:37','2021-11-10 17:52:30');
+INSERT INTO recipe_categories (id, name, created_at, updated_at) VALUES (12,'蒸し物','2021-11-10 17:48:45','2021-11-10 17:51:46');
