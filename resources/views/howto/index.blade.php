@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <form action="{{ action('User\HowtoController@index') }}" method="get">
+        <form action="{{ action('HowtoController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
             <label class="col-md-2">調理法名</label>
             <div class="col-md-8">

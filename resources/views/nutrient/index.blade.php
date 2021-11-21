@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <form action="{{ action('User\NutrientController@index') }}" method="get">
+        <form action="{{ action('NutrientController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
             <label class="col-md-2">栄養素名</label>
             <div class="col-md-8">

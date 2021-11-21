@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <form action="{{ action('User\CategoryController@index') }}" method="get">
+        <form action="{{ action('CategoryController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
             <label class="col-md-2">タイプ名</label>
             <div class="col-md-8">

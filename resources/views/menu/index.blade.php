@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <form action="{{ action('User\MenuController@index') }}" method="get">
+                <form action="{{ action('MenuController@index') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">献立名</label>
                         <div class="col-md-8">

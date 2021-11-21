@@ -24,17 +24,14 @@ class RecipeController extends Controller
   public function index(Request $request) {
     // 検索
     $ids = [];
-    $query = DB::table('recipes');
+    $query = Recipe::query();
     if ($request->easy) {
-      echo "かんたん ON<br/>";
       $query = $query->where('is_easy', '1');
     }
     if ($request->favorite) {
-      echo "おいしい ON<br/>";
       $query = $query->where('is_favorite', '1');
     }
     if ($request->fresh) {
-      echo "さっぱり ON<br/>";
       $query = $query->where('is_refresh', '1');
     }
 
@@ -43,24 +40,37 @@ class RecipeController extends Controller
       $words = array_map('trim', explode(' ', trim($request->mq)));
       //dd($words);
       foreach($words as $word) {
+        $qarr = [];
         if (!Utl::isNullOrEmpty($word)) {
           $materials = Material::where('name', 'like', '%' . $word . '%')->
             orWhere('name2', 'like', '%' . $word . '%')->
             orWhere('name3', 'like', '%' . $word . '%')->get();
           foreach($materials as $material) {
+            var_dump($material->name);
             $arr = $material->recipeIds();
+            var_dump($arr);
             //var_dump($material->name);
             //var_dump($arr);
+            //var_dump($material->name, $arr);
             if (count($arr)) {
-              $query = $query->whereIn('id', $arr);
+              $qarr = array_merge($qarr, $arr);
             }
           }
+          var_dump($qarr);
+          $query = $query->whereIn('id', $qarr);
+          //$debug = Recipe::whereIn('id', $qarr)->get();
+          $debug = $query->get();
+          var_dump($debug->toArray());
         }
       }
+      //var_dump($qarr);
+    //  if(count($qarr)) {
+        //$query = $query->whereIn('id', $qarr);
+
+    //  }
     }
 
-    // 栄養素
-    // 材料名
+    // 栄養素名
     if ($request->nq) {
       $words = array_map('trim', explode(' ', trim($request->nq)));
       //dd($words);
@@ -87,11 +97,12 @@ class RecipeController extends Controller
         if (!Utl::isNullOrEmpty($word)) {
           // orWhereを入れるとAnd検索ができなくなる
           $arr = Recipe::where('name', 'like', '%' . $word . '%')->pluck('id')->toArray();
-          $arr = array_merge(Recipe::where('body', 'like', '%' . $word . '%')->pluck('id')->toArray());
+          $arr = array_merge($arr, Recipe::where('body', 'like', '%' . $word . '%')->pluck('id')->toArray());
           $query = $query->whereIn('id', $arr);
         }
       }
     }
+    var_dump($query);
     $recipes = $query->groupBy('id')->get();
 
     // 画面表示用検索条件の再設定

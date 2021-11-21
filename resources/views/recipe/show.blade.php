@@ -81,7 +81,7 @@
         <div class="row py-2">
           @foreach($recipe->recipeMaterials as $item)
             <div class="col-md-4 pr-1 py-2">
-              <a class="btn btn-lg btn-outline-dark" href="/material/show?id={{ $item->id }}" role="button">{{ $item->material->name . " " . $item->amount }}</a>
+              <a class="btn btn-lg btn-outline-dark" href="/material/show?id={{ $item->material->id }}" role="button">{{ $item->material->name . " " . $item->amount }}</a>
             </div>
           @endforeach
         </div>
