@@ -51,8 +51,8 @@ class Controller extends BaseController
 
     $imageName = '';
     if (!Utl::isNullOrEmpty($imageObj)) {
-      //$imageName = Storage::disk(env('FILESYSTEM_DRIVER'))->putFile(env('IMAGE_URL_PREFIX'), $imageObj, 'public');
-      $imageName = Storage::disk('local')->putFile($path, $imageObj, 'public');
+      $imageName = Storage::disk(env('FILESYSTEM_DRIVER'))->putFile($path, $imageObj, 'public');
+      //$imageName = Storage::disk('local')->putFile($path, $imageObj, 'public');
     }
     return $imageName;
   }
@@ -67,8 +67,8 @@ class Controller extends BaseController
 
     if (!Utl::isNullOrEmpty($filename)) {
       $filePath = $path . '/' . $filename;
-      //Storage::disk(env('FILESYSTEM_DRIVER'))->delete($filePath);
-      Storage::disk('local')->delete($filePath);
+      Storage::disk(env('FILESYSTEM_DRIVER'))->delete($filePath);
+      //Storage::disk('local')->delete($filePath);
     }
   }
 

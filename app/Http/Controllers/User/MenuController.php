@@ -49,7 +49,7 @@ class MenuController extends Controller
 
           $posts = Menu::all();
       }
-      return view('user.menu.index', ['posts' => $posts, 'cond_name' => $cond_name]);
+      return view('user.menu.index', compact(['posts', 'cond_name']));
   }
   public function edit(Request $request)
   {
@@ -58,7 +58,7 @@ class MenuController extends Controller
       if (empty($menu)) {
         abort(404);
       }
-      return view('user.menu.edit', ['menu_form' => $menu]);
+      return view('user.menu.edit', compact(['menu']));
   }
 
 
@@ -97,7 +97,7 @@ class MenuController extends Controller
         self::deleteImage('public/image/menu', $menu->image_path);
       }
       $menu->delete();
-      return redirect('User/menu/');
+      return redirect('user/menu/');
   }
 
 }

@@ -88,7 +88,7 @@
               @foreach($recipes as $recipe)
                 <tr>
                   <th>{{ $recipe->id }}</th>
-                  <td>@if($recipe->image_path)<img width="80px" src="{{ asset('storage/image/recipe/' . $recipe->image_path) }}"/>@endif</td>
+                  <td>@if($recipe->image_path)<img width="80px" src="{{ Utl::imgPathRecipe($recipe->image_path) }}"/>@endif</td>
                   <td>{{ str_limit($recipe->name, 30) }}</td>
                   <td>{{ str_limit($recipe->body, 100) }}</td>
                   <td>

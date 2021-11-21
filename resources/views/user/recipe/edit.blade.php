@@ -137,7 +137,7 @@
               <input type="file" class="form-control-file" name="image">
               <div class="form-text text-info">
                 @if($recipe->image_path)
-                  <img width="100px" src="{{ asset("storage/image/recipe/" . $recipe->image_path) }}"/>
+                  <img width="100px" src="{{ Utl::imgPathRecipe($recipe->image_path) }}"/>
                 @endif
                 設定中: {{ $recipe->image_path }}
               </div>
@@ -155,7 +155,7 @@
               <input type="file" class="form-control-file" name="image2">
               <div class="form-text text-info">
                 @if($recipe->image_path2)
-                  <img width="100px" src="{{ asset("storage/image/recipe/howto/" . $recipe->image_path2) }}"/>
+                  <img width="100px" src="{{ Utl::imgPathRecipeHowto($recipe->image_path2) }}"/>
                 @endif
                 設定中: {{ $recipe->image_path2 }}
               </div>

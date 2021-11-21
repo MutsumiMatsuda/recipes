@@ -20,7 +20,7 @@ class MenuController extends Controller
 
           $posts = Menu::all();
       }
-      return view('menu.index', ['posts' => $posts, 'cond_name' => $cond_name]);
+      return view('menu.index', compact(['posts', 'cond_name']));
   }
 
   public function show(Request $request)
