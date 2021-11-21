@@ -24,7 +24,7 @@
               <label class="col-md-2">メモ</label>
               <div class="col-md-10">
                   <div class="card card-body border-primary">
-                    {!! nl2br($nutrient->memo) !!}
+                    {!! Utl::nl2br($nutrient->memo) !!}
                   </div>
               </div>
           </div>

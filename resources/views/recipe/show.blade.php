@@ -111,7 +111,7 @@
         <h3>作り方</h3>
         <div class="row">
           <div class="card card-body border-primary">
-            {!! nl2br($recipe->body) !!}
+            {!! Utl::nl2br($recipe->body) !!}
           </div>
         </div>
 
