@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
          //$this->call(FeelingsTableSeeder::class);
          //$this->call(HowtosTableSeeder::class);
          //$this->call(MenuSeeder::class);
-        $path = 'database/sql/dump01.sql';
+        $path = 'database/sql/dump02.sql';
         \DB::unprepared(file_get_contents($path));
     }
 }
