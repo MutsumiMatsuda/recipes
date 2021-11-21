@@ -46,9 +46,9 @@ class RecipeController extends Controller
             orWhere('name2', 'like', '%' . $word . '%')->
             orWhere('name3', 'like', '%' . $word . '%')->get();
           foreach($materials as $material) {
-            var_dump($material->name);
+            //var_dump($material->name);
             $arr = $material->recipeIds();
-            var_dump($arr);
+            //var_dump($arr);
             //var_dump($material->name);
             //var_dump($arr);
             //var_dump($material->name, $arr);
@@ -56,11 +56,11 @@ class RecipeController extends Controller
               $qarr = array_merge($qarr, $arr);
             }
           }
-          var_dump($qarr);
+          //var_dump($qarr);
           $query = $query->whereIn('id', $qarr);
           //$debug = Recipe::whereIn('id', $qarr)->get();
-          $debug = $query->get();
-          var_dump($debug->toArray());
+          //$debug = $query->get();
+          //var_dump($debug->toArray());
         }
       }
       //var_dump($qarr);
@@ -102,7 +102,7 @@ class RecipeController extends Controller
         }
       }
     }
-    var_dump($query);
+    //var_dump($query);
     $recipes = $query->groupBy('id')->get();
 
     // 画面表示用検索条件の再設定

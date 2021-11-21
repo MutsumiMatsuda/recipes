@@ -30,7 +30,7 @@
               <input type="button" class="btn btn-primary" value="クリア" onclick="clearQuery();">
             </div>
           </div>
-          <div class="row py-1">
+          <div class="row py-2">
             <div class="col-md-3">
               <div class="chkbox">
                 <input type="checkbox" id="easy" name="easy" @if($q['easy'] == true) checked @endif>
