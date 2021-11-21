@@ -14,14 +14,18 @@
           <div class="form-group row">
               <label class="col-md-2">栄養素名</label>
               <div class="col-md-10">
-                  <input type="text" class="form-control" name="name" value="{{ old('name', $nutrient->name) }}" placeholder="栄養素名を入力">
+                <div class="card card-body border-primary">
+                  {{ $nutrient->name }}
+                </div>
               </div>
           </div>
 
           <div class="form-group row">
               <label class="col-md-2">メモ</label>
               <div class="col-md-10">
-                  <textarea class="form-control" name="memo" rows="5">{{ old('memo', $nutrient->memo) }}</textarea>
+                  <div class="card card-body border-primary">
+                    {!! nl2br($nutrient->memo) !!}
+                  </div>
               </div>
           </div>
 

@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-10 mx-auto">
         <h2>栄養素の編集</h2>
-        <form action="{{ action('User\NutrientController@edit') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('User\NutrientController@update') }}" method="post" enctype="multipart/form-data">
 
           @if (count($errors) > 0)
           　<ul>

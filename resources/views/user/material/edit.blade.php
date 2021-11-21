@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-10 mx-auto">
         <h2>材料の編集</h2>
-        <form action="{{ action('User\MaterialController@create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('User\MaterialController@update') }}" method="post" enctype="multipart/form-data">
 
           @if (count($errors) > 0)
           　<ul>
@@ -24,6 +24,14 @@
             <div class="col-md-4 py-2">
               <h3>材料名</h3>
               <input type="text" name="name" value="{{ old('name', $material->name) }}" placeholder="材料名を入力">
+            </div>
+            <div class="col-md-4 py-2">
+              <h3>別名</h3>
+              <input type="text" name="name2" value="{{ old('name2', $material->name2) }}" placeholder="材料の別名を入力">
+            </div>
+            <div class="col-md-4 py-2">
+              <h3>別名２</h3>
+              <input type="text" name="name3" value="{{ old('name3', $material->name3) }}" placeholder="材料の別名２を入力">
             </div>
 
             <div class="col-md-2 pr-1 py-2">
@@ -61,6 +69,7 @@
           @endfor
 
           {{ csrf_field() }}
+          <input type="hidden" name="id" value="{{ $material->id }}">
           <input type="submit" name="submit" value ="送信">
         </form>
       </div>

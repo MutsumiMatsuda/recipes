@@ -26,6 +26,11 @@ class Material extends Model
     public function nutrients() {
       return $this->hasManyThrough('App\Nutrient', 'App\NutrientMaterial', 'material_id', 'id', null, 'nutrient_id');
     }
+
+    // 案連レシピのidの配列を返す
+    public function recipeIds() {
+      return $this->recipes->pluck('id')->toArray();
+    }
 }
 
 ?>

@@ -34,8 +34,8 @@
               <tr class="header">
                 <th width="5%">ID</th>
                 <th width="10%">調理法名</th>
-                <th width="80%">登録レシピ</th>
-                <th width="5%">操作</th>
+                <th width="78%">登録レシピ</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

@@ -30,6 +30,6 @@ class MenuController extends Controller
       if (empty($menu)) {
         abort(404);
       }
-      return view('menu.show', ['menu_form' => $menu]);
+      return view('menu.show', ['menu' => $menu]);
   }
 }

@@ -96,6 +96,7 @@ class NutrientController extends Controller {
     unset($form['submit']);
     unset($form['_token']);
     unset($form['material_id']);
+    unset($form['material_category_id']);
 
     $data->fill($form);
     if (!$data->save()) {

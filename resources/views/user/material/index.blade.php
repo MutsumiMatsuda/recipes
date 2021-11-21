@@ -34,9 +34,9 @@
               <tr class="header">
                 <th width="15%">材料名</th>
                 <th width="15%">カテゴリ</th>
-                <th width="35%">使用レシピ</th>
+                <th width="33%">使用レシピ</th>
                 <th width="30%">栄養素</th>
-                <th width="5%">操作</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

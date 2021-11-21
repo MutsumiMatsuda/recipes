@@ -130,6 +130,23 @@ class Utl
   }
 
   /**
+  * 献立画像へのフルパス取得
+  *
+  * @param  画像ファイル名
+  * @return 画像ファイルへのフルパス
+  *         画像ファイル名が空の場合は、画像無しのファイルパスを返す
+  */
+  public static function imgPathMenu($filename) {
+
+    /*if (self::isS3()) {
+      $ret = env('AWS_S3_URL') . '/' . env('IMAGE_URL_PREFIX') . '/' . (self::isNullOrEmpty($filename) ? self::getNoNewsImgFileName() : $filename);
+    } else {*/
+      $ret = asset('storage/image/menu/' . $filename);
+    //}
+    return $ret;
+  }
+
+  /**
   * 画像へのフルパス取得
   *
   * @param  画像ファイル名

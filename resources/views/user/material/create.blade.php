@@ -25,6 +25,14 @@
               <h3>材料名</h3>
               <input type="text" name="name" value="{{ old('name') }}" placeholder="材料名を入力">
             </div>
+            <div class="col-md-4 py-2">
+              <h3>別名</h3>
+              <input type="text" name="name2" value="{{ old('name2') }}" placeholder="材料の別名を入力">
+            </div>
+            <div class="col-md-4 py-2">
+              <h3>別名２</h3>
+              <input type="text" name="name3" value="{{ old('name3') }}" placeholder="材料の別名２を入力">
+            </div>
 
             <div class="col-md-2 pr-1 py-2">
               <h3>カテゴリ</h3>

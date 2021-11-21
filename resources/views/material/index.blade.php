@@ -8,9 +8,6 @@
       <h2 style="margin-bottom:30px">材料一覧</h2>
     </div>
     <div class="row">
-      <div class="col-md-4 l-pad-l">
-        <a href="{{ action('User\MaterialController@add') }}" role="button" class="btn btn-primary">材料新規登録</a>
-      </div>
       <div class="col-md-8">
         <form action="{{ action('User\MaterialController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
@@ -34,9 +31,9 @@
               <tr class="header">
                 <th width="15%">材料名</th>
                 <th width="15%">カテゴリ</th>
-                <th width="35%">使用レシピ</th>
+                <th width="32%">使用レシピ</th>
                 <th width="30%">栄養素</th>
-                <th width="5%">操作</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

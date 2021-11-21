@@ -4,56 +4,36 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-10 mx-auto">
                 <h2>献立詳細</h2>
-                <form action="{{ action('User\MenuController@update') }}" method="post" enctype="multipart/form-data">
-                    @if (count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $e)
-                                <li>{{ $e }}</li>
-                            @endforeach
-                        </ul>
+                <div class="form-group row">
+                    <label class="col-md-2" for="name">献立名</label>
+                    <div class="col-md-7">
+                      <div class="card card-body border-primary">
+                        {{ $menu->name }}
+                      </div>
+                    </div>
+                    @if($menu->image_path)
+                    <div class="col-md-3">
+                      <img src="{{ Utl::imgPathMenu($menu->image_path) }}" width="160px">
+                    </div>
                     @endif
-                    <div class="form-group row">
-                        <label class="col-md-2" for="name">献立名</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ $menu_form->name}}">
-                        </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="body">本文</label>
+                    <div class="col-md-10">
+                      <div class="card card-body border-primary">
+                        {!! nl2br($menu->body) !!}
+                      </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="body">本文</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ $menu_form->body }}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="image">画像</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
-                            <div class="form-text text-info">
-                                設定中: {{ $menu_form->image_path }}
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $menu_form->id }}">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
         <hr/>
         <h3>この献立のレシピ</h3>
         <div class="row py-2">
-          @foreach($menu_form->recipes as $item)
+          @foreach($menu->recipes as $item)
             <div class="col-md-4 pr-1 py-2">
               <a class="btn btn-lg btn-outline-dark" href="/recipe/show?id={{ $item->id }}" role="button">{{ $item->name }}</a>
             </div>

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nutrient extends Model
 {
+  protected $guarded = ['id'];
+
+  public static $rules = [
+    'name' => 'required'
+  ];
+
   public function nutrientMaterials() {
     return $this->hasMany('App\NutrientMaterial');
   }
@@ -45,5 +51,10 @@ class Nutrient extends Model
       array_multisort($nameArray, SORT_ASC, $result);
     }
     return $result;
+  }
+
+  // 案連レシピのidの配列を返す
+  public function recipeIds() {
+    return array_column($this->recipes(), 'id');
   }
 }

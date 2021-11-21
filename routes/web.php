@@ -74,5 +74,4 @@ Route::get('howto/show', 'HowtoController@show');
 Route::get('category', 'CategoryController@index')->name('p_category');
 Route::get('category/show', 'CategoryController@show');
 
-Route::get('/', 'TopPageController@index')->name('toppage');
-Route::post('/next', 'NextController@index');
+Route::get('/', 'RecipeController@index')->name('toppage');

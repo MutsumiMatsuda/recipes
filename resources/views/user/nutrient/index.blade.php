@@ -34,9 +34,9 @@
               <tr class="header">
                 <th width="5%">ID</th>
                 <th width="10%">栄養素名</th>
-                <th width="40%">メモ</th>
+                <th width="38%">メモ</th>
                 <th width="40%">材料</th>
-                <th width="5%">操作</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

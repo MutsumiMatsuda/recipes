@@ -35,8 +35,8 @@
                 <th width="5%">ID</th>
                 <th width="10%">画像</th>
                 <th width="20%">レシピ</th>
-                <th width="50%">作り方</th>
-                <th width="10%">操作</th>
+                <th width="53%">作り方</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

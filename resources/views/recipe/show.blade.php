@@ -2,6 +2,18 @@
 @extends('layouts.front')
 @section('title', 'レシピ詳細')
 
+@section('style')
+  /* 画像のモーダル関連 */
+  .modal-middle {		//モーダルウィンドウの縦表示位置を調整
+  	margin: 5% auto;
+  }
+
+  .modal-img_footer {	//表示予定のテキストとボタンを中央揃え
+  	padding: .5em;
+  	text-align: center;
+  }
+@endsection
+
 @section('content')
   <div class="container">
     <div class="row">
@@ -44,17 +56,23 @@
         </div>
 
         <div class="row py-2">
-          <div class="col-md-2">
-            <input type="checkbox" id="favorite" name="is_favorite" disabled="true" @if ($recipe->is_favorite == 1) checked @endif>
-            <label for="favorite">おいしい</label>
+          <div class="col-md-3">
+            <div class="chkbox">
+              <input type="checkbox" id="favorite" name="is_favorite" disabled="true" @if ($recipe->is_favorite == 1) checked @endif>
+              <label for="favorite">おいしい</label>
+            </div>
           </div>
-          <div class="col-md-2">
-            <input type="checkbox" id="easy" name="is_easy" disabled="true" @if ($recipe->is_easy == 1) checked @endif>
-            <label for="easy">かんたん</label>
+          <div class="col-md-3">
+            <div class="chkbox">
+              <input type="checkbox" id="easy" name="is_easy" disabled="true" @if ($recipe->is_easy == 1) checked @endif>
+              <label for="easy">かんたん</label>
+            </div>
           </div>
-          <div class="col-md-2">
-            <input type="checkbox" id="refresh" name="is_refresh" disabled="true" @if ($recipe->is_refresh == 1) checked @endif>
-            <label for="refresh">さっぱり</label>
+          <div class="col-md-3">
+            <div class="chkbox">
+              <input type="checkbox" id="refresh" name="is_refresh" disabled="true" @if ($recipe->is_refresh == 1) checked @endif>
+              <label for="refresh">さっぱり</label>
+            </div>
           </div>
         </div>
 
@@ -92,8 +110,8 @@
 
         <h3>作り方</h3>
         <div class="row">
-          <div class="col-md-12">
-            <textarea class="form-control" name="body" disabled="true" rows="20">{{ old("body", $recipe->body) }}</textarea>
+          <div class="card card-body border-primary">
+            {!! nl2br($recipe->body) !!}
           </div>
         </div>
 

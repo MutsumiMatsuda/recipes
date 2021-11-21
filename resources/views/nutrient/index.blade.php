@@ -8,9 +8,6 @@
       <h2 style="margin-bottom:30px">栄養素一覧</h2>
     </div>
     <div class="row">
-      <div class="col-md-4 l-pad-l">
-        <a href="{{ action('User\NutrientController@add') }}" role="button" class="btn btn-primary">栄養素新規登録</a>
-      </div>
       <div class="col-md-8">
         <form action="{{ action('User\NutrientController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
@@ -35,8 +32,8 @@
                 <th width="5%">ID</th>
                 <th width="10%">栄養素名</th>
                 <th width="40%">メモ</th>
-                <th width="40%">材料</th>
-                <th width="5%">操作</th>
+                <th width="38%">材料</th>
+                <th width="7%">操作</th>
               </tr>
             </thead>
             <tbody>

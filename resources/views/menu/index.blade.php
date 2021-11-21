@@ -7,9 +7,6 @@
             <h2>献立一覧</h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <a href="{{ action('User\MenuController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-            </div>
             <div class="col-md-8">
                 <form action="{{ action('User\MenuController@index') }}" method="get">
                     <div class="form-group row">
@@ -34,8 +31,8 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">写真</th>
                                 <th width="20%">献立名</th>
-                                <th width="40%">本文</th>
-                                <th width="10%">操作</th>
+                                <th width="43%">本文</th>
+                                <th width="7%">操作</th>
                             </tr>
                         </thead>
                         <tbody>

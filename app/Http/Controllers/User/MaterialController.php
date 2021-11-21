@@ -117,7 +117,7 @@ class MaterialController extends Controller {
     // 材料、調味料のデータを取り出す
     $nutrients = $form['nutrient_material_id'];
 
-    $material = new Material;
+    $material = Material::find($request->id);
 
     // フォームから送信されてきた_tokenを削除する
     unset($form['_token']);
