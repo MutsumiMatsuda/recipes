@@ -92,7 +92,8 @@ class Utl
   * @return StorageTypeがs3であるかの真偽値
   */
   public static function isS3() {
-    return self::isSameStr(env('FILESYSTEM_DRIVER'), env('FILESYSTEM_DRIVER_TYPE_S3'));
+    //return self::isSameStr(env('FILESYSTEM_DRIVER'), env('FILESYSTEM_DRIVER_TYPE_S3'));
+    return true;
   }
 
   /**
