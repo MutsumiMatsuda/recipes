@@ -123,7 +123,7 @@
           <div class="modal-dialog modal-lg modal-middle">
             <div class="modal-content">
               <div class="modal-body">
-                <img src="{{ Utl::imgPathRecipeTips($recipe->image_path2) }}" alt="作り方画像" width="720" class="aligncenter size-full wp-image-425"/>
+                <img src="{{ Utl::imgPathRecipeHowto($recipe->image_path2) }}" alt="作り方画像" width="720" class="aligncenter size-full wp-image-425"/>
               </div>
               <div class="modal-img_footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">閉じる</button>
