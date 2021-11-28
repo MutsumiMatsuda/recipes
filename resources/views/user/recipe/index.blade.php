@@ -14,7 +14,7 @@
       <div class="col-md-8">
         <form action="{{ action('User\RecipeController@index') }}" method="get">
           <div class="form-group row l-mg-rl">
-            <label class="col-md-2">タイトル</label>
+            <label class="col-md-2">レシピ</label>
             <div class="col-md-8">
               <input type="text" class="form-control" name="q" value="{{ $q }}">
             </div>

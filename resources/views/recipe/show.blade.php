@@ -53,6 +53,11 @@
               </div>
             </div>
           @endif
+          @auth
+            <div class="col-md-3 pr-1 py-2 ml-auto">
+              <a class="btn btn-lg btn-warning" href="/user/recipe/edit?id={{ $recipe->id }}" role="button">編集画面へ</a>
+            </div>
+          @endauth
         </div>
 
         <div class="row py-2">
@@ -73,6 +78,9 @@
               <input type="checkbox" id="refresh" name="is_refresh" disabled="true" @if ($recipe->is_refresh == 1) checked @endif>
               <label for="refresh">さっぱり</label>
             </div>
+          </div>
+          <div class="col-md-3 ml-auto">
+            <a class="btn btn-lg btn-warning" href="/recipe" role="button">一覧に戻る</a>
           </div>
         </div>
 

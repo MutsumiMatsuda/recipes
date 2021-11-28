@@ -284,12 +284,28 @@ class RecipeController extends Controller
       $validator->errors()->add('error', 'レシピの編集に失敗しました。');
       return redirect('user/recipe/edit?id=' . $request->id)->withErrors($validator)->withInput();
     }
-    return redirect('user/recipe');
+    return redirect('user/recipe/edit?id=' . $recipe->id);
   }
 
   public function index(Request $request) {
     $q = $request->q ? $request->q : '';
-    $recipes = Recipe::all();
+    $query = Recipe::query();
+
+    // レシピ名
+    if (!Utl::isNullOrEmpty($q)) {
+      $words = array_map('trim', explode(' ', trim($q)));
+      //dd($words);
+      foreach($words as $word) {
+        if (!Utl::isNullOrEmpty($word)) {
+          // orWhereを入れるとAnd検索ができなくなる
+          $arr = Recipe::where('name', 'like', '%' . $word . '%')->pluck('id')->toArray();
+          $arr = array_merge($arr, Recipe::where('body', 'like', '%' . $word . '%')->pluck('id')->toArray());
+          $query = $query->whereIn('id', $arr);
+        }
+      }
+    }
+    //var_dump($query);
+    $recipes = $query->groupBy('id')->get();
 
     return view('user.recipe.index', compact('recipes', 'q'));
   }

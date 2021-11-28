@@ -43,10 +43,8 @@ class MenuController extends Controller
       $cond_name = $request->cond_name;
       if ($cond_name != '') {
           // 検索されたら検索結果を取得する
-          $posts = Menu::where('name', $cond_name)->get();
+          $posts = Menu::where('name', 'like', '%' . $cond_name . '%')->get();
       } else {
-          // それ以外はすべてのニュースを取得する
-
           $posts = Menu::all();
       }
       return view('user.menu.index', compact(['posts', 'cond_name']));

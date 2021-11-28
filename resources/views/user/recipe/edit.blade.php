@@ -10,7 +10,18 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 mx-auto">
-        <h2>レシピの編集</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <h2>レシピの編集</h2>
+          </div>
+          <div class="col-md-4">
+            <a class="btn btn-lg btn-warning" href="/recipe/show?id={{ $recipe->id }}" role="button">このレシピの詳細画面へ</a>
+          </div>
+          <div class="col-md-4">
+            <a class="btn btn-lg btn-warning" href="/user/recipe" role="button">一覧へ戻る</a>
+          </div>
+        </div>
+
         <form action="{{ action('User\RecipeController@edit') }}" method="post" enctype="multipart/form-data">
 
           @if (count($errors) > 0)

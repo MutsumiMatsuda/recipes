@@ -28,7 +28,10 @@ class MaterialController extends Controller {
     $q = $request->q;
     if ($q != null) {
       //$items = Material::where('name', 'like', '%' . $q . '%')->orWhere('name2', 'like', '%' . $q . '%')->get();
-      $items = Material::where('name', 'like', '%' . $q . '%')->get();
+      $items = Material::where('name', 'like', '%' . $q . '%')->
+        orWhere('name2', 'like', '%' . $q . '%')->
+        orWhere('name3', 'like', '%' . $q . '%')->
+        get();
     } else {
       $items = Material::all();
     }
