@@ -47,11 +47,11 @@ class Recipe extends Model
   public function nutrients() {
     $materials = $this->materials;
     //return $materials;
-    $result = null;
+    $result = [];
     foreach($materials as $material) {
       $nutrients = $material->nutrients;
       if (count($nutrients)) {
-        if ($result) {
+        if (count($result)) {
           //echo count($nutrients) . "\n";
           foreach($nutrients->toArray() as $nutrient) {
             $add = true;
