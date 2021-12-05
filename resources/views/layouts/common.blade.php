@@ -66,6 +66,8 @@
                                   <a class="dropdown-item" href="{{ route('material') }}">材料一覧</a>
                                   <a class="dropdown-item" href="{{ route('nutrient') }}">栄養素一覧</a>
                                   <a class="dropdown-item" href="{{ route('howto') }}">調理法一覧</a>
+                                  <a class="dropdown-item" href="{{ route('country') }}">国別料理一覧</a>
+                                  <a class="dropdown-item" href="{{ route('mainsub') }}">料理分類一覧</a>
                                   <a class="dropdown-item" href="{{ route('p_recipe') }}">一般メニュー</a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();

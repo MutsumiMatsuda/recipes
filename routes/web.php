@@ -51,12 +51,18 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
     Route::post('howto/create', 'User\HowtoController@create');
     Route::get('howto/edit', 'User\HowtoController@edit');
     Route::post('howto/edit', 'User\HowtoController@update');
-    //Route::post('profile/create','Admin\ProfileController@create')->middleware('auth');
-    //Route::post('profile','Admin\ProfileController@update')->middleware('auth');
-    //Route::get('profile/edit','Admin\ProfileController@edit')->middleware('auth');
-    //Route::get('profile','Admin\ProfileController@index')->middleware('auth');
-    //Route::get('profile/delete','Admin\ProfileController@delete')->middleware('auth');
-    //Route::get('profile', 'Admin\ProfileController@index')->middleware('auth'); // 追記
+
+    Route::get('country', 'User\CountryController@index')->name('country');
+    Route::get('country/create', 'User\CountryController@add');
+    Route::post('country/create', 'User\CountryController@create');
+    Route::get('country/edit', 'User\CountryController@edit');
+    Route::post('country/edit', 'User\CountryController@update');
+
+    Route::get('mainsub', 'User\MainsubController@index')->name('mainsub');
+    Route::get('mainsub/create', 'User\MainsubController@add');
+    Route::post('mainsub/create', 'User\MainsubController@create');
+    Route::get('mainsub/edit', 'User\MainsubController@edit');
+    Route::post('mainsub/edit', 'User\MainsubController@update');
 });
 
 Auth::routes();
@@ -73,5 +79,9 @@ Route::get('howto', 'HowtoController@index')->name('p_howto');
 Route::get('howto/show', 'HowtoController@show');
 Route::get('category', 'CategoryController@index')->name('p_category');
 Route::get('category/show', 'CategoryController@show');
+Route::get('country', 'CountryController@index')->name('p_country');
+Route::get('country/show', 'CountryController@show');
+Route::get('mainsub', 'MainsubController@index')->name('p_mainsub');
+Route::get('mainsub/show', 'MainsubController@show');
 
 Route::get('/', 'RecipeController@index')->name('toppage');

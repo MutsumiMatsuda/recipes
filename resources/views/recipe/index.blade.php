@@ -68,7 +68,7 @@
               </select>
             </div>
             <div class="col-md-2 pr-1 py-2">
-              <h3>主菜副菜</h3>
+              <h3>料理分類</h3>
               <select name ="mainsub">
                 <option value="0" @if($q['mainsub'] == 0) selected="selected" @endif>指定無し</option>
                 @foreach( $mainsubs as $item)
