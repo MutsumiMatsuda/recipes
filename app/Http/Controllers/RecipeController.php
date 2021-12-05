@@ -13,6 +13,8 @@ use App\Recipe;
 use App\RecipeMaterial;
 use App\Seasoning;
 use App\Nutrient;
+use App\RecipeCountry;
+use App\Mainsub;
 use Auth;
 use Storage;
 use DB;
@@ -33,6 +35,24 @@ class RecipeController extends Controller
     }
     if ($request->fresh) {
       $query = $query->where('is_refresh', '1');
+    }
+
+    // セレクトボックス
+    if ($request->menu) {
+      //dd($request->menu);
+      $query = $query->where('menu_id', $request->menu);
+    }
+    if ($request->category) {
+      $query = $query->where('recipe_category_id', $request->category);
+    }
+    if ($request->howto) {
+      $query = $query->where('howto_id', $request->howto);
+    }
+    if ($request->country) {
+      $query = $query->where('recipe_country_id', $request->country);
+    }
+    if ($request->mainsub) {
+      $query = $query->where('mainsub_id', $request->mainsub);
     }
 
     // 材料名
@@ -114,8 +134,20 @@ class RecipeController extends Controller
     $q['easy'] = isset($q['easy']) && $q['easy'] == true;
     $q['fresh'] = isset($q['fresh'])  && $q['fresh'] == true;
     $q['favorite'] = isset($q['favorite'])  && $q['favorite'] == true;
+    $q['category'] = !isset($q['category']) ? 0 : $q['category'];
+    $q['menu'] = !$request->menu ? 0 : $request->menu;
+    $q['howto'] = !$request->howto ? 0 : $request->howto;
+    $q['country'] = !$request->country ? 0 : $request->country;
+    $q['mainsub'] = !$request->mainsub ? 0 : $request->mainsub;
+
     //dd($q);
-    return view('recipe.index', compact('recipes', 'q'));
+    $categories = RecipeCategory::all();
+    $menus = Menu::all();
+    $howtos = Howto::all();
+    $countries = RecipeCountry::all();
+    $mainsubs = Mainsub::all();
+
+    return view('recipe.index', compact('recipes', 'q', 'categories', 'menus', 'howtos', 'countries', 'mainsubs'));
   }
 
   public function show(Request $request)

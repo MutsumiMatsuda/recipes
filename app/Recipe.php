@@ -44,6 +44,14 @@ class Recipe extends Model
     return $this->belongsTo('App\Howto', "howto_id");
   }
 
+  public function country() {
+    return $this->belongsTo('App\RecipeCountry', "recipe_country_id");
+  }
+
+  public function mainsub() {
+    return $this->belongsTo('App\Mainsub', "mainsub_id");
+  }
+
   public function nutrients() {
     $materials = $this->materials;
     //return $materials;

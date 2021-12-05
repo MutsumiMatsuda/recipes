@@ -21,6 +21,8 @@ class CreateRecipesTable extends Migration
             $table->bigInteger('recipe_category_id')->nullable();
             $table->bigInteger('menu_id');
             $table->bigInteger('howto_id')->nullable();
+            $table->bigInteger('recipe_country_id')->nullable();
+            $table->bigInteger('mainsub_id')->nullable();
             $table->string('image_path')->nullable();
             $table->string('image_path2')->nullable();
             $table->integer('is_easy')->default(0);

@@ -31,6 +31,54 @@
             </div>
           </div>
           <div class="row py-2">
+            <div class="col-md-2 pr-1 py-2">
+              <h3>献立</h3>
+              <select name ="menu">
+                <option value="0" @if($q['menu'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $menus as $item)
+                  <option value="{{ $item->id }}" @if($q['menu'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>カテゴリ</h3>
+              <select name ="category">
+                <option value="0" @if($q['category'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $categories as $item)
+                  <option value="{{ $item->id }}" @if($q['category'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>調理法</h3>
+              <select name ="howto">
+                <option value="0" @if($q['howto'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $howtos as $item)
+                  <option value="{{ $item->id }}" @if($q['howto'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>国別</h3>
+              <select name ="country">
+                <option value="0" @if($q['country'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $countries as $country)
+                  <option value="{{ $country->id }}" @if($q['country'] == $item->id) selected="selected" @endif>{{ $country->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>主菜副菜</h3>
+              <select name ="mainsub">
+                <option value="0" @if($q['mainsub'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $mainsubs as $item)
+    　　　　　　　<option value="{{ $item->id }}" @if($q['mainsub'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+    　　　　　　@endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="row py-2">
             <div class="col-md-3">
               <div class="chkbox">
                 <input type="checkbox" id="easy" name="easy" @if($q['easy'] == true) checked @endif>

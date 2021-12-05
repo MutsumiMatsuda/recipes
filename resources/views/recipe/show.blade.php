@@ -53,6 +53,23 @@
               </div>
             </div>
           @endif
+          @if($recipe->recipe_country_id)
+            <div class="col-md-2 pr-1 py-2">
+              <h3>国別</h3>
+              <div class="card bg-info">
+                <a class="btn btn-lg btn-outline-dark text-white" href="/country/show?id={{ $recipe->recipe_country_id }}" role="button">{{ $recipe->country->name }}</a>
+              </div>
+            </div>
+          @endif
+          @if($recipe->mainsub_id)
+            <div class="col-md-2 pr-1 py-2">
+              <h3>主菜/副菜</h3>
+              <div class="card bg-info">
+                <a class="btn btn-lg btn-outline-dark text-white" href="/mainsub/show?id={{ $recipe->mainsub_id }}" role="button">{{ $recipe->mainsub->name }}</a>
+              </div>
+            </div>
+          @endif
+
           @auth
             <div class="col-md-3 pr-1 py-2 ml-auto">
               <a class="btn btn-lg btn-warning" href="/user/recipe/edit?id={{ $recipe->id }}" role="button">編集画面へ</a>
