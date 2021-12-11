@@ -48,7 +48,7 @@
                   <td>{{ str_limit($recipe->body, 100) }}</td>
                   <td>
                     <div>
-                      <a href="{{ action('User\RecipeController@edit', ['id' => $recipe->id]) }}">編集</a>
+                      <a href="{{ action('User\RecipeController@edit', ['id' => $recipe->id]) }}">編集</a><br/>
                       <a href="{{ action('User\RecipeController@delete', ['id' => $recipe->id]) }}">削除</a>
                     </div>
                   </td>

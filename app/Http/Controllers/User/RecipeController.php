@@ -49,6 +49,8 @@ class RecipeController extends Controller
        'is_easy' => $request->is_easy ? 1 : 0,
        'is_favorite' => $request->is_favorite ? 1 : 0,
        'is_refresh' => $request->is_refresh ? 1 : 0,
+       'is_healthy' => $request->is_healthy ? 1 : 0,
+       'is_caloryoff' => $request->is_caloryoff ? 1 : 0,
        //'user_id' =>  Auth::id(),
        'user_id' =>  1,
     ]);
@@ -184,6 +186,8 @@ class RecipeController extends Controller
        'is_easy' => $request->is_easy ? 1 : 0,
        'is_favorite' => $request->is_favorite ? 1 : 0,
        'is_refresh' => $request->is_refresh ? 1 : 0,
+       'is_healthy' => $request->is_healthy ? 1 : 0,
+       'is_caloryoff' => $request->is_caloryoff ? 1 : 0,
        //'user_id' =>  Auth::id(),
        'user_id' =>  1,
     ]);

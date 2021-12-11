@@ -36,6 +36,12 @@ class RecipeController extends Controller
     if ($request->fresh) {
       $query = $query->where('is_refresh', '1');
     }
+    if ($request->healthy) {
+      $query = $query->where('is_healthy', '1');
+    }
+    if ($request->caloryoff) {
+      $query = $query->where('is_caloryoff', '1');
+    }
 
     // セレクトボックス
     if ($request->menu) {
@@ -134,6 +140,8 @@ class RecipeController extends Controller
     $q['easy'] = isset($q['easy']) && $q['easy'] == true;
     $q['fresh'] = isset($q['fresh'])  && $q['fresh'] == true;
     $q['favorite'] = isset($q['favorite'])  && $q['favorite'] == true;
+    $q['healthy'] = isset($q['healthy'])  && $q['healthy'] == true;
+    $q['caloryoff'] = isset($q['caloryoff'])  && $q['caloryoff'] == true;
     $q['category'] = !isset($q['category']) ? 0 : $q['category'];
     $q['menu'] = !$request->menu ? 0 : $request->menu;
     $q['howto'] = !$request->howto ? 0 : $request->howto;

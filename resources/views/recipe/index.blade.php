@@ -79,22 +79,28 @@
           </div>
 
           <div class="row py-2">
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="easy" name="easy" @if($q['easy'] == true) checked @endif>
                 <label for="easy">かんたん</label>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="fresh" name="fresh" @if($q['fresh'] == true) checked @endif>
                 <label for="fresh">さっぱり</label>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="favorite" name="favorite" @if($q['favorite'] == true) checked @endif>
                 <label for="favorite">おいしい</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="chkbox">
+                <input type="checkbox" id="healthy" name="healthy" @if($q['healthy'] == true) checked @endif>
+                <label for="healthy">身体に良い</label>
               </div>
             </div>
             <div class="col-md-2 ml-auto">
@@ -111,6 +117,9 @@
             </div>
             <div class="col-md-2">
               <input type="submit" class="btn btn-primary" value="おいしい" onclick="document.getElementById('favorite').checked=true; document.search.submit();">
+            </div>
+            <div class="col-md-2">
+              <input type="submit" class="btn btn-primary" value="身体に良い" onclick="document.getElementById('healthy').checked=true; document.search.submit();">
             </div>
 
           </div>

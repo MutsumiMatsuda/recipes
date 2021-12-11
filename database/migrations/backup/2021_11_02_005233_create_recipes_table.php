@@ -28,6 +28,8 @@ class CreateRecipesTable extends Migration
             $table->integer('is_easy')->default(0);
             $table->integer('is_favorite')->default(0);
             $table->integer('is_refresh')->default(0);
+            $table->integer('is_healthy')->default(0);
+            $table->integer('is_caloryoff')->default(0);
             $table->timestamps();
         });
     }
