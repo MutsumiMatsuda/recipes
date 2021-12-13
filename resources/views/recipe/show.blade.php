@@ -78,19 +78,19 @@
         </div>
 
         <div class="row py-2">
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="chkbox">
               <input type="checkbox" id="favorite" name="is_favorite" disabled="true" @if ($recipe->is_favorite == 1) checked @endif>
               <label for="favorite">おいしい</label>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="chkbox">
               <input type="checkbox" id="easy" name="is_easy" disabled="true" @if ($recipe->is_easy == 1) checked @endif>
               <label for="easy">かんたん</label>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="chkbox">
               <input type="checkbox" id="refresh" name="is_refresh" disabled="true" @if ($recipe->is_refresh == 1) checked @endif>
               <label for="refresh">さっぱり</label>
@@ -102,10 +102,13 @@
               <label for="healthy">身体に良い</label>
             </div>
           </div>
-          <div class="col-md-3 ml-auto">
-            <a class="btn btn-lg btn-warning" href="/recipe" role="button">一覧に戻る</a>
-          </div>
         </div>
+
+      <div class="row py-2">
+        <div class="col-md-3 ml-auto">
+          <a class="btn btn-lg btn-warning" href="/recipe" role="button">一覧に戻る</a>
+        </div>
+      </div>
 
 
         <h3>材料</h3>

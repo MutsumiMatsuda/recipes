@@ -154,21 +154,21 @@
           <h3>検索タグ</h3>
           <div class="row py-2">
 
-            <div class="col-md-2">
+            <div class="chkbox col-md-3">
               <input type="checkbox" id="favorite" name="is_favorite" @if (old('is_favorite') == 1) checked @endif>
               <label for="favorite">おいしい</label>
             </div>
-            <div class="col-md-2">
+            <div class="chkbox col-md-3">
               <input type="checkbox" id="easy" name="is_easy" @if (old('is_easy') == 1) checked @endif>
               <label for="easy">かんたん</label>
             </div>
-            <div class="col-md-2">
+            <div class="chkbox col-md-3">
               <input type="checkbox" id="refresh" name="is_refresh" @if (old('is_refresh') == 1) checked @endif>
               <label for="refresh">さっぱり</label>
             </div>
-            <div class="col-md-2">
+            <div class="chkbox col-md-3">
               <input type="checkbox" id="healthy" name="is_healthy" @if (old('is_healthy') == 1) checked @endif>
-              <label for="refresh">身体に良い</label>
+              <label for="healthy">身体に良い</label>
             </div>
           </div>
 
