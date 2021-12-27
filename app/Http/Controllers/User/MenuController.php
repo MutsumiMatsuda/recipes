@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Menu;
+use Utl;
 
 class MenuController extends Controller
 {
@@ -90,12 +91,19 @@ class MenuController extends Controller
   {
       // 該当するNews Modelを取得
       $menu = Menu::find($request->id);
+
+      // 該当レシピの値をリセット
+      foreach($menu->recipes as $recipe) {
+        $recipe->menu_id = 0;
+        $recipe->save();
+      }
+
       // 削除する
       if (Utl::isNullOrEmpty($menu->image_path)) {
         self::deleteImage('public/image/menu', $menu->image_path);
       }
       $menu->delete();
-      return redirect('user/menu/');
+      return redirect('user/menu');
   }
 
 }

@@ -49,7 +49,8 @@
                   <td>
                     <div>
                       <a href="{{ action('User\RecipeController@edit', ['id' => $recipe->id]) }}">編集</a><br/>
-                      <a href="{{ action('User\RecipeController@delete', ['id' => $recipe->id]) }}">削除</a>
+                      {{--<a href="{{ action('User\RecipeController@delete', ['id' => $recipe->id]) }}">削除</a>--}}
+                      @php Utl::confirmATag('', 'delItem', action('User\RecipeController@delete', ['id' => $recipe->id]), '削除') @endphp
                     </div>
                   </td>
                 </tr>
@@ -60,4 +61,10 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('js')
+  <script>
+  {{ Utl::putConfirmJs('delItem', '本当に削除してよろしいですか？') }}
+  </script>
 @endsection

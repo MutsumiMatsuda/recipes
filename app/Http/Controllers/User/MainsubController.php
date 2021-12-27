@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Validator;
 class MainsubController extends Controller {
 
   /**
-  * 調理法一覧表示アクション
+  * 主菜/副菜一覧表示アクション
   */
   public function index(Request $request) {
     $q = $request->q;
@@ -34,7 +34,7 @@ class MainsubController extends Controller {
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 主菜/副菜新規登録画面表示アクション
   */
   public function add(Request $request) {
     //dd($request->all());
@@ -42,7 +42,7 @@ class MainsubController extends Controller {
   }
 
   /**
-  * 調理法新規登録アクション
+  * 主菜/副菜新規登録アクション
   */
   public function create(Request $request) {
     // バリデーションを行う
@@ -67,7 +67,7 @@ class MainsubController extends Controller {
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 主菜/副菜編集画面表示アクション
   */
   public function edit(Request $request) {
     $mainsub = Mainsub::find($request->id);
@@ -78,7 +78,7 @@ class MainsubController extends Controller {
   }
 
   /**
-  * 調理法新規更新アクション
+  * 主菜/副菜更新アクション
   */
   public function update(Request $request) {
     // バリデーション
@@ -99,6 +99,27 @@ class MainsubController extends Controller {
       return redirect('user/mainsub/edit?id=' . $request->id)->withErrors($validator)->withInput();
     }
 
+    return redirect('user/mainsub');
+  }
+
+
+  /**
+  * 主菜/副菜削除アクション
+  */
+  public function delete(Request $request) {
+
+    $data = Mainsub::find($request->id);
+
+    // 該当レシピの値をリセット
+    foreach($data->recipes as $recipe) {
+      $recipe->mainsub_id = 0;
+      $recipe->save();
+    }
+
+    // データを削除
+    $data->delete();
+
+    // 一覧へ戻る
     return redirect('user/mainsub');
   }
 }

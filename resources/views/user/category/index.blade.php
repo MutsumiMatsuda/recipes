@@ -60,8 +60,9 @@
                   </td>
                   <td>
                     <div>
-                      <a href="{{ action('User\CategoryController@edit', ['id' => $item->id]) }}">編集</a>
+                      <a href="{{ action('User\CategoryController@edit', ['id' => $item->id]) }}">編集</a><br/>
                       {{--<a href="{{ action('User\CategoryController@delete', ['id' => $item->id]) }}">削除</a>--}}
+                      @php Utl::confirmATag('', 'delItem', action('User\CategoryController@delete', ['id' => $item->id]), '削除') @endphp
                     </div>
                   </td>
                 </tr>
@@ -72,4 +73,10 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('js')
+  <script>
+  {{ Utl::putConfirmJs('delItem', '本当に削除してよろしいですか？') }}
+  </script>
 @endsection

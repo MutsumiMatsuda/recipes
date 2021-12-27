@@ -102,4 +102,25 @@ class CategoryController extends Controller {
 
     return redirect('user/category');
   }
+
+
+    /**
+    * タイプ削除アクション
+    */
+    public function delete(Request $request) {
+
+      $data = RecipeCategory::find($request->id);
+
+      // 該当レシピの値をリセット
+      foreach($data->recipes as $recipe) {
+        $recipe->recipe_category_id = 0;
+        $recipe->save();
+      }
+
+      // データを削除
+      $data->delete();
+
+      // 一覧へ戻る
+      return redirect('user/category');
+    }
 }

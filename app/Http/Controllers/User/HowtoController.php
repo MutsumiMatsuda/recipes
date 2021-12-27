@@ -67,7 +67,7 @@ class HowtoController extends Controller {
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 調理法編集画面表示アクション
   */
   public function edit(Request $request) {
     $howto = Howto::find($request->id);
@@ -78,7 +78,7 @@ class HowtoController extends Controller {
   }
 
   /**
-  * 調理法新規更新アクション
+  * 調理法更新アクション
   */
   public function update(Request $request) {
     // バリデーション
@@ -101,4 +101,24 @@ class HowtoController extends Controller {
 
     return redirect('user/howto');
   }
+
+    /**
+    * 調理法削除アクション
+    */
+    public function delete(Request $request) {
+
+      $data = Howto::find($request->id);
+
+      // 該当レシピの値をリセット
+      foreach($data->recipes as $recipe) {
+        $recipe->howto_id = 0;
+        $recipe->save();
+      }
+
+      // データを削除
+      $data->delete();
+
+      // 一覧へ戻る
+      return redirect('user/howto');
+    }
 }

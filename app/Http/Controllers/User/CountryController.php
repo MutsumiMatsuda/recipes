@@ -13,6 +13,7 @@ use App\Recipe;
 use App\RecipeMaterial;
 use Auth;
 use Storage;
+use Utl;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -78,7 +79,7 @@ class CountryController extends Controller {
   }
 
   /**
-  * 調理法新規更新アクション
+  * 調理法更新アクション
   */
   public function update(Request $request) {
     // バリデーション
@@ -99,6 +100,26 @@ class CountryController extends Controller {
       return redirect('user/country/edit?id=' . $request->id)->withErrors($validator)->withInput();
     }
 
+    return redirect('user/country');
+  }
+
+  /**
+  * 調理法削除アクション
+  */
+  public function delete(Request $request) {
+
+    $data = RecipeCountry::find($request->id);
+
+    // 該当レシピの値をリセット
+    foreach($data->recipes as $recipe) {
+      $recipe->recipe_country_id = 0;
+      $recipe->save();
+    }
+
+    // データを削除
+    $data->delete();
+
+    // 一覧へ戻る
     return redirect('user/country');
   }
 }

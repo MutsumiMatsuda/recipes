@@ -45,24 +45,28 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
     Route::post('category/create', 'User\CategoryController@create');
     Route::get('category/edit', 'User\CategoryController@edit');
     Route::post('category/edit', 'User\CategoryController@update');
+    Route::get('category/delete', 'User\CategoryController@delete');
 
     Route::get('howto', 'User\HowtoController@index')->name('howto');
     Route::get('howto/create', 'User\HowtoController@add');
     Route::post('howto/create', 'User\HowtoController@create');
     Route::get('howto/edit', 'User\HowtoController@edit');
     Route::post('howto/edit', 'User\HowtoController@update');
+    Route::get('howto/delete', 'User\HowtoController@delete');
 
     Route::get('country', 'User\CountryController@index')->name('country');
     Route::get('country/create', 'User\CountryController@add');
     Route::post('country/create', 'User\CountryController@create');
     Route::get('country/edit', 'User\CountryController@edit');
     Route::post('country/edit', 'User\CountryController@update');
+    Route::get('country/delete', 'User\CountryController@delete');
 
     Route::get('mainsub', 'User\MainsubController@index')->name('mainsub');
     Route::get('mainsub/create', 'User\MainsubController@add');
     Route::post('mainsub/create', 'User\MainsubController@create');
     Route::get('mainsub/edit', 'User\MainsubController@edit');
     Route::post('mainsub/edit', 'User\MainsubController@update');
+    Route::get('mainsub/delete', 'User\MainsubController@delete');
 });
 
 Auth::routes();
