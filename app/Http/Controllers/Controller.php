@@ -21,7 +21,7 @@ class Controller extends BaseController
       $str = "[\n";
       foreach($matCatCol as $cat) {
         $str .= sprintf("{id:\"%d\", arr:\n", $cat->id);
-        $str .= self::mkJsAry(Material::where('material_category_id', $cat->id)->get(), ',');
+        $str .= self::mkJsAry(Material::where('material_category_id', $cat->id)->orderBy('name', 'asc')->get(), ',');
         $str .= "},\n";
       }
       $str .= "];\n";

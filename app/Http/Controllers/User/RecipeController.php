@@ -25,7 +25,7 @@ class RecipeController extends Controller
   {
     $materialCategories = MaterialCategory::all();
     //dd($materialCategories);
-    $materials = Material::where('material_category_id', $materialCategories->first()->id)->get();
+    $materials = Material::where('material_category_id', $materialCategories->first()->id)->orderBy('name', 'asc')->get();
     $recipeCategories = RecipeCategory::all();
     $menus = Menu::all();
     $howtos = Howto::all();
