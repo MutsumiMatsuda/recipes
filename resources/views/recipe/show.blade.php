@@ -1,4 +1,3 @@
-{{-- layouts/front.blade.phpを読み込む --}}
 @extends('layouts.front')
 @section('title', 'レシピ詳細')
 
