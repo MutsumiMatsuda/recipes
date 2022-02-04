@@ -212,7 +212,7 @@
             </div>
             <div class="chkbox col-md-3">
               <input type="checkbox" id="refresh" name="is_refresh" @if (old('is_refresh', $recipe->is_refresh) == 1) checked @endif>
-              <label for="refresh">さっぱり</label>
+              <label for="refresh">お弁当</label>
             </div>
             <div class="chkbox col-md-3">
               <input type="checkbox" id="healthy" name="is_healthy" @if (old('is_healthy', $recipe->is_healthy) == 1) checked @endif>

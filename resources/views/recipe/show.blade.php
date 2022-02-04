@@ -93,7 +93,7 @@
           <div class="col-md-3">
             <div class="chkbox">
               <input type="checkbox" id="refresh" name="is_refresh" disabled="true" @if ($recipe->is_refresh == 1) checked @endif>
-              <label for="refresh">さっぱり</label>
+              <label for="refresh">お弁当</label>
             </div>
           </div>
           <div class="col-md-3">

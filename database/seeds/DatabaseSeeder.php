@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
          //$this->call(RecipeCountryTableSeeder::class);
         //$path = 'database/sql/dump07.sql';
         //\DB::unprepared(file_get_contents($path));
+        /*
         \DB::table('recipe_countries')->insert([
           [
               'name' => '和食',
@@ -61,6 +62,53 @@ class DatabaseSeeder extends Seeder
           ],
           [
               'name' => 'その他',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+        ]);
+        */
+        \DB::table('seasons')->insert([
+          [
+              'id' => 1,
+              'name' => '春',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+          [
+              'id' => 2,
+              'name' => '夏',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+          [
+              'id' => 3,
+              'name' => '秋',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+          [
+              'id' => 4,
+              'name' => '冬',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+        ]);
+        \DB::table('tags')->insert([
+          [
+              'id' => 1,
+              'name' => '目に良い',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+          [
+              'id' => 2,
+              'name' => '体重を増やす',
+              'created_at' => new DateTime(),
+              'updated_at' => new DateTime(),
+          ],
+          [
+              'id' => 3,
+              'name' => '消化が良い',
               'created_at' => new DateTime(),
               'updated_at' => new DateTime(),
           ],

@@ -88,7 +88,7 @@
             <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="fresh" name="fresh" @if($q['fresh'] == true) checked @endif>
-                <label for="fresh">さっぱり</label>
+                <label for="fresh">お弁当</label>
               </div>
             </div>
             <div class="col-md-2">
@@ -113,7 +113,7 @@
               <input type="submit" class="btn btn-primary" value="かんたん" onclick="document.getElementById('easy').checked=true; document.search.submit();">
             </div>
             <div class="col-md-2">
-              <input type="submit" class="btn btn-primary" value="さっぱり" onclick="document.getElementById('fresh').checked=true; document.search.submit();">
+              <input type="submit" class="btn btn-primary" value="お弁当" onclick="document.getElementById('fresh').checked=true; document.search.submit();">
             </div>
             <div class="col-md-2">
               <input type="submit" class="btn btn-primary" value="おいしい" onclick="document.getElementById('favorite').checked=true; document.search.submit();">
