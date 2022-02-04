@@ -1,5 +1,4 @@
 @extends('layouts.front')
-
 @section('title', '登録済みレシピの一覧')
 
 @section('content')
