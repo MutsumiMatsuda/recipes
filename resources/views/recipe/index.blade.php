@@ -78,6 +78,28 @@
           </div>
 
           <div class="row py-2">
+            <div class="col-md-2 pr-1 py-2">
+              <h3>旬</h3>
+              <select name ="season">
+                <option value="0" @if($q['season'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $seasons as $item)
+                  <option value="{{ $item->id }}" @if($q['season'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>目的</h3>
+              <select name ="tag">
+                <option value="0" @if($q['category'] == 0) selected="selected" @endif>指定無し</option>
+                @foreach( $tags as $item)
+                  <option value="{{ $item->id }}" @if($q['tag'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <h5 class="col-md-2">チェック</h5>
             <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="easy" name="easy" @if($q['easy'] == true) checked @endif>
@@ -96,7 +118,7 @@
                 <label for="favorite">おいしい</label>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="healthy" name="healthy" @if($q['healthy'] == true) checked @endif>
                 <label for="healthy">身体に良い</label>

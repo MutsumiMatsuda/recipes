@@ -15,6 +15,8 @@ use App\Seasoning;
 use App\Nutrient;
 use App\RecipeCountry;
 use App\Mainsub;
+use App\Season;
+use App\Tag;
 use Auth;
 use Storage;
 use DB;
@@ -147,6 +149,8 @@ class RecipeController extends Controller
     $q['howto'] = !$request->howto ? 0 : $request->howto;
     $q['country'] = !$request->country ? 0 : $request->country;
     $q['mainsub'] = !$request->mainsub ? 0 : $request->mainsub;
+    $q['season'] = !$request->season ? 0 : $request->season;
+    $q['tag'] = !$request->tag ? 0 : $request->tag;
 
     //dd($q);
     $categories = RecipeCategory::all();
@@ -154,8 +158,21 @@ class RecipeController extends Controller
     $howtos = Howto::all();
     $countries = RecipeCountry::all();
     $mainsubs = Mainsub::all();
+    $seasons = Season::all();
+    $tags = Tag::all();
 
-    return view('recipe.index', compact('recipes', 'q', 'categories', 'menus', 'howtos', 'countries', 'mainsubs'));
+    return view('recipe.index',
+      compact(
+        'recipes'
+       ,'q'
+       ,'categories'
+       ,'menus'
+       ,'howtos'
+       ,'countries'
+       ,'mainsubs'
+       ,'seasons'
+       ,'tags'
+     ));
   }
 
   public function show(Request $request)

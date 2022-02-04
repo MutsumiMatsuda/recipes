@@ -66,12 +66,32 @@
             </select>
           </div>
 
-          <div class="col-md-3 pr-1 py-2">
+          <div class="col-md-2 pr-1 py-2">
             <h3>主菜副菜</h3>
             <select name ="mainsub_id">
               <option value="0" @if(old('mainsub_id') == 0) selected="selected" @endif>指定無し</option>
               @foreach( $mainsubs as $item)
               <option value="{{ $item->id }}" @if(old('mainsub_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="col-md-2 pr-1 py-2">
+            <h3>旬</h3>
+            <select name ="season_id">
+              <option value="0" @if(old('season_id') == 0) selected="selected" @endif>指定無し</option>
+              @foreach( $seasons as $item)
+              <option value="{{ $item->id }}" @if(old('season_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="col-md-2 pr-1 py-2">
+            <h3>目的</h3>
+            <select name ="tag_id">
+              <option value="0" @if(old('tag_id') == 0) selected="selected" @endif>指定無し</option>
+              @foreach( $tags as $item)
+              <option value="{{ $item->id }}" @if(old('tag_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
               @endforeach
             </select>
           </div>

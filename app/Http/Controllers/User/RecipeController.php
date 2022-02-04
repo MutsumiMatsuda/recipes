@@ -14,6 +14,8 @@ use App\RecipeMaterial;
 use App\Seasoning;
 use App\RecipeCountry;
 use App\Mainsub;
+use App\Season;
+use App\Tag;
 use Auth;
 use Storage;
 use Utl;
@@ -31,11 +33,25 @@ class RecipeController extends Controller
     $howtos = Howto::all();
     $countries = RecipeCountry::all();
     $mainsubs = Mainsub::all();
+    $seasons = Season::all();
+    $tags = Tag::all();
 
     $jsAry = self::mkJsMatAry($materialCategories);
     //dd($ary01);
 
-    return view('user.recipe.create', compact('materialCategories', 'materials', 'recipeCategories', 'menus', 'howtos', 'countries', 'mainsubs', 'jsAry'));
+    return view('user.recipe.create',
+      compact(
+        'materialCategories'
+      , 'materials'
+      , 'recipeCategories'
+      , 'menus'
+      , 'howtos'
+      , 'countries'
+      , 'mainsubs'
+      , 'seasons'
+      , 'tags'
+      , 'jsAry'
+    ));
   }
 
   /**
@@ -173,11 +189,26 @@ class RecipeController extends Controller
       $howtos = Howto::all();
       $countries = RecipeCountry::all();
       $mainsubs = Mainsub::all();
+      $seasons = Season::all();
+      $tags = Tag::all();
 
       $jsAry = self::mkJsMatAry($materialCategories);
       //dd($ary01);
 
-      return view('user.recipe.edit', compact('recipe', 'materialCategories', 'materials', 'recipeCategories', 'menus', 'howtos', 'countries', 'mainsubs', 'jsAry'));
+      return view('user.recipe.edit',
+       compact(
+         'recipe'
+        , 'materialCategories'
+        , 'materials'
+        , 'recipeCategories'
+        , 'menus'
+        , 'howtos'
+        , 'countries'
+        , 'mainsubs'
+        , 'seasons'
+        , 'tags'
+        , 'jsAry'
+      ));
   }
 
   public function update(Request $request)
