@@ -200,8 +200,8 @@
       }
     }
     select2.options[0] = new Option("選んで下さい", '0');
-    for( let i = 1; i <=　arr.length; i++ ) {
-      select2.options[i] = new Option(arr[i].txt, arr[i].val);
+    for( let i = 0; i <=　arr.length; i++ ) {
+      select2.options[i + 1] = new Option(arr[i].txt, arr[i].val);
     }
   }
 </script>
