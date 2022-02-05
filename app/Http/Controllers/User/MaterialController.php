@@ -12,6 +12,7 @@ use App\Nutrient;
 use App\Recipe;
 use App\RecipeMaterial;
 use App\NutrientMaterial;
+use App\Season;
 use Auth;
 use Storage;
 use Illuminate\Support\Facades\Validator;
@@ -41,8 +42,9 @@ class MaterialController extends Controller {
   public function add() {
     $categories = MaterialCategory::all();
     $nutrients = Nutrient::all();
+    $seasons = Season::all();
 
-    return view('user.material.create', compact('categories', 'nutrients'));
+    return view('user.material.create', compact('categories', 'nutrients', 'seasons'));
   }
 
   public function create(Request $request)
@@ -103,8 +105,9 @@ class MaterialController extends Controller {
     //dd($material->nutrients->toArray());
     $categories = MaterialCategory::all();
     $nutrients = Nutrient::all();
+    $seasons = Season::all();
 
-    return view('user.material.edit', compact('material', 'categories', 'nutrients'));
+    return view('user.material.edit', compact('material', 'categories', 'nutrients', 'seasons'));
   }
 
   public function update(Request $request) {

@@ -18,8 +18,7 @@ class Recipe extends Model
     'is_favorite' => 'numeric',
     'is_refresh' => 'numeric',
   );
-      // 以下を追記
-  // MenunModelに関連付けを行う
+
   public function seasonings() {
     return $this->hasMany('App\Seasoning');
   }
@@ -50,6 +49,18 @@ class Recipe extends Model
 
   public function mainsub() {
     return $this->belongsTo('App\Mainsub', "mainsub_id");
+  }
+
+  public function season() {
+    return $this->belongsTo('App\Season', "season_id");
+  }
+
+  public function tags() {
+    return $this->hasManyThrough('App\Tag', 'App\RecipeTag', 'recipe_id', 'id', null, 'tag_id');
+  }
+
+  public function tag() {
+    return $this->tags()->first();
   }
 
   public function nutrients() {

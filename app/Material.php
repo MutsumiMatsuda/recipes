@@ -6,31 +6,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
 {
-    protected $guarded = array('id');
-    //
-    public static $rules = array(
-        'name' => 'required',
-        'material_category_id' => 'required'
-    );
+  protected $guarded = array('id');
+  //
+  public static $rules = array(
+    'name' => 'required',
+    'material_category_id' => 'required'
+  );
 
-    public function category() {
-      return $this->belongsTo('App\MaterialCategory', 'material_category_id');
-    }
+  public function category() {
+    return $this->belongsTo('App\MaterialCategory', 'material_category_id');
+  }
 
-    // MenunModelに関連付けを行う
-    public function recipes() {
-      return $this->hasManyThrough('App\Recipe', 'App\RecipeMaterial', 'material_id', 'id', null, 'recipe_id');
-    }
+  public function season() {
+    return $this->belongsTo('App\Season', 'season_id');
+  }
 
-    // MenunModelに関連付けを行う
-    public function nutrients() {
-      return $this->hasManyThrough('App\Nutrient', 'App\NutrientMaterial', 'material_id', 'id', null, 'nutrient_id');
-    }
+  public function recipes() {
+    return $this->hasManyThrough('App\Recipe', 'App\RecipeMaterial', 'material_id', 'id', null, 'recipe_id');
+  }
 
-    // 案連レシピのidの配列を返す
-    public function recipeIds() {
-      return $this->recipes->pluck('id')->toArray();
-    }
+  // MenunModelに関連付けを行う
+  public function nutrients() {
+    return $this->hasManyThrough('App\Nutrient', 'App\NutrientMaterial', 'material_id', 'id', null, 'nutrient_id');
+  }
+
+  // 案連レシピのidの配列を返す
+  public function recipeIds() {
+    return $this->recipes->pluck('id')->toArray();
+  }
 }
 
 ?>

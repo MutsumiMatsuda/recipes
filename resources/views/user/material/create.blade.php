@@ -37,8 +37,16 @@
             <div class="col-md-2 pr-1 py-2">
               <h3>カテゴリ</h3>
               <select name ="material_category_id" id="select4">
-                @foreach( $categories as $category)
-                  <option value="{{ $category->id }}" @if(old('material_category_id') == $category->id) selected="selected" @endif>{{ $category->name }}</option>
+                @foreach( $categories as $item)
+                  <option value="{{ $item->id }}" @if(old('material_category_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-2 pr-1 py-2">
+              <h3>旬</h3>
+              <select name ="season_id" id="select4">
+                @foreach( $seasons as $item)
+                  <option value="{{ $item->id }}" @if(old('season_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
                 @endforeach
               </select>
             </div>

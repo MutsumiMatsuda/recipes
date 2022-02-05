@@ -1,11 +1,6 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.common')
-
-
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
 @section('title', 'レシピの編集')
 
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
   <div class="container">
     <div class="row">
@@ -103,7 +98,7 @@
               <select name ="tag_id">
                 <option value="0" @if(old('tag_id') == 0) selected="selected" @endif>指定無し</option>
                 @foreach( $tags as $item)
-                <option value="{{ $item->id }}" @if(old('tag_id', $recipe->tag_id) == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                <option value="{{ $item->id }}" @if(old('tag_id', $recipe->tag()->id) == $item->id) selected="selected" @endif>{{ $item->name }}</option>
                 @endforeach
               </select>
             </div>
