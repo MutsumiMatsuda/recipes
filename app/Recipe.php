@@ -60,7 +60,12 @@ class Recipe extends Model
   }
 
   public function tag() {
-    return $this->tags()->first();
+    $tag = $this->tags()->first();
+    if (null == $tag) {
+      $tag = New Tag();
+      $tag->id = 0;
+    }
+    return $tag;
   }
 
   public function nutrients() {

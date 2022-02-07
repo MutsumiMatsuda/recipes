@@ -73,6 +73,8 @@
                                   <a class="dropdown-item" href="{{ route('p_howto') }}">調理法一覧</a>
                                   <a class="dropdown-item" href="{{ route('p_country') }}">国別料理一覧</a>
                                   <a class="dropdown-item" href="{{ route('p_mainsub') }}">料理分類一覧</a>
+                                  <a class="dropdown-item" href="{{ route('p_season') }}">旬一覧</a>
+                                  <a class="dropdown-item" href="{{ route('p_tag') }}">検索タグ一覧</a>
                                   @guest
                                     <a class="dropdown-item" href="{{ route('login') }}"ログイン</a>
                                   @else

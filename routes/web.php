@@ -14,59 +14,73 @@
 
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
-    Route::get('recipe/create', 'User\RecipeController@add')->name('addrecipe');
-    Route::post('recipe/create', 'User\RecipeController@create');
-    Route::get('recipe/edit', 'User\RecipeController@edit');
-    Route::post('recipe/edit', 'User\RecipeController@update');
-    Route::get('recipe/delete', 'User\RecipeController@delete');
-    Route::get('recipe', 'User\RecipeController@index')->name('recipe');
+  Route::get('recipe/create', 'User\RecipeController@add')->name('addrecipe');
+  Route::post('recipe/create', 'User\RecipeController@create');
+  Route::get('recipe/edit', 'User\RecipeController@edit');
+  Route::post('recipe/edit', 'User\RecipeController@update');
+  Route::get('recipe/delete', 'User\RecipeController@delete');
+  Route::get('recipe', 'User\RecipeController@index')->name('recipe');
 
-    Route::get('menu/create', 'User\MenuController@add');
-    Route::post('menu/create', 'User\MenuController@create');
-    Route::get('menu/edit', 'User\MenuController@edit'); // 追記
-    Route::post('menu/edit', 'User\MenuController@update'); // 追記
-    Route::get('menu/delete', 'User\MenuController@delete');
-    Route::get('menu','User\MenuController@index')->name('menu');
+  Route::get('menu/create', 'User\MenuController@add');
+  Route::post('menu/create', 'User\MenuController@create');
+  Route::get('menu/edit', 'User\MenuController@edit'); // 追記
+  Route::post('menu/edit', 'User\MenuController@update'); // 追記
+  Route::get('menu/delete', 'User\MenuController@delete');
+  Route::get('menu','User\MenuController@index')->name('menu');
 
-    Route::get('nutrient', 'User\NutrientController@index')->name('nutrient');
-    Route::get('nutrient/create', 'User\NutrientController@add');
-    Route::post('nutrient/create', 'User\NutrientController@create');
-    Route::get('nutrient/edit', 'User\NutrientController@edit');
-    Route::post('nutrient/edit', 'User\NutrientController@update');
+  Route::get('nutrient', 'User\NutrientController@index')->name('nutrient');
+  Route::get('nutrient/create', 'User\NutrientController@add');
+  Route::post('nutrient/create', 'User\NutrientController@create');
+  Route::get('nutrient/edit', 'User\NutrientController@edit');
+  Route::post('nutrient/edit', 'User\NutrientController@update');
 
-    Route::get('material', 'User\MaterialController@index')->name('material');
-    Route::get('material/create', 'User\MaterialController@add');
-    Route::post('material/create', 'User\MaterialController@create');
-    Route::get('material/edit', 'User\MaterialController@edit');
-    Route::post('material/edit', 'User\MaterialController@update');
+  Route::get('material', 'User\MaterialController@index')->name('material');
+  Route::get('material/create', 'User\MaterialController@add');
+  Route::post('material/create', 'User\MaterialController@create');
+  Route::get('material/edit', 'User\MaterialController@edit');
+  Route::post('material/edit', 'User\MaterialController@update');
 
-    Route::get('category', 'User\CategoryController@index')->name('category');
-    Route::get('category/create', 'User\CategoryController@add');
-    Route::post('category/create', 'User\CategoryController@create');
-    Route::get('category/edit', 'User\CategoryController@edit');
-    Route::post('category/edit', 'User\CategoryController@update');
-    Route::get('category/delete', 'User\CategoryController@delete');
+  Route::get('category', 'User\CategoryController@index')->name('category');
+  Route::get('category/create', 'User\CategoryController@add');
+  Route::post('category/create', 'User\CategoryController@create');
+  Route::get('category/edit', 'User\CategoryController@edit');
+  Route::post('category/edit', 'User\CategoryController@update');
+  Route::get('category/delete', 'User\CategoryController@delete');
 
-    Route::get('howto', 'User\HowtoController@index')->name('howto');
-    Route::get('howto/create', 'User\HowtoController@add');
-    Route::post('howto/create', 'User\HowtoController@create');
-    Route::get('howto/edit', 'User\HowtoController@edit');
-    Route::post('howto/edit', 'User\HowtoController@update');
-    Route::get('howto/delete', 'User\HowtoController@delete');
+  Route::get('howto', 'User\HowtoController@index')->name('howto');
+  Route::get('howto/create', 'User\HowtoController@add');
+  Route::post('howto/create', 'User\HowtoController@create');
+  Route::get('howto/edit', 'User\HowtoController@edit');
+  Route::post('howto/edit', 'User\HowtoController@update');
+  Route::get('howto/delete', 'User\HowtoController@delete');
 
-    Route::get('country', 'User\CountryController@index')->name('country');
-    Route::get('country/create', 'User\CountryController@add');
-    Route::post('country/create', 'User\CountryController@create');
-    Route::get('country/edit', 'User\CountryController@edit');
-    Route::post('country/edit', 'User\CountryController@update');
-    Route::get('country/delete', 'User\CountryController@delete');
+  Route::get('country', 'User\CountryController@index')->name('country');
+  Route::get('country/create', 'User\CountryController@add');
+  Route::post('country/create', 'User\CountryController@create');
+  Route::get('country/edit', 'User\CountryController@edit');
+  Route::post('country/edit', 'User\CountryController@update');
+  Route::get('country/delete', 'User\CountryController@delete');
 
-    Route::get('mainsub', 'User\MainsubController@index')->name('mainsub');
-    Route::get('mainsub/create', 'User\MainsubController@add');
-    Route::post('mainsub/create', 'User\MainsubController@create');
-    Route::get('mainsub/edit', 'User\MainsubController@edit');
-    Route::post('mainsub/edit', 'User\MainsubController@update');
-    Route::get('mainsub/delete', 'User\MainsubController@delete');
+  Route::get('mainsub', 'User\MainsubController@index')->name('mainsub');
+  Route::get('mainsub/create', 'User\MainsubController@add');
+  Route::post('mainsub/create', 'User\MainsubController@create');
+  Route::get('mainsub/edit', 'User\MainsubController@edit');
+  Route::post('mainsub/edit', 'User\MainsubController@update');
+  Route::get('mainsub/delete', 'User\MainsubController@delete');
+
+  Route::get('season', 'User\SeasonController@index')->name('season');
+  Route::get('season/create', 'User\SeasonController@add');
+  Route::post('season/create', 'User\SeasonController@create');
+  Route::get('season/edit', 'User\SeasonController@edit');
+  Route::post('season/edit', 'User\SeasonController@update');
+  Route::get('season/delete', 'User\SeasonController@delete');
+
+  Route::get('tag', 'User\TagController@index')->name('tag');
+  Route::get('tag/create', 'User\TagController@add');
+  Route::post('tag/create', 'User\TagController@create');
+  Route::get('tag/edit', 'User\TagController@edit');
+  Route::post('tag/edit', 'User\TagController@update');
+  Route::get('tag/delete', 'User\TagController@delete');
 });
 
 Auth::routes();
@@ -87,5 +101,9 @@ Route::get('country', 'CountryController@index')->name('p_country');
 Route::get('country/show', 'CountryController@show');
 Route::get('mainsub', 'MainsubController@index')->name('p_mainsub');
 Route::get('mainsub/show', 'MainsubController@show');
+Route::get('season', 'SeasonController@index')->name('p_season');
+Route::get('season/show', 'SeasonController@show');
+Route::get('tag', 'TagController@index')->name('p_tag');
+Route::get('tag/show', 'TagController@show');
 
 Route::get('/', 'RecipeController@index')->name('toppage');

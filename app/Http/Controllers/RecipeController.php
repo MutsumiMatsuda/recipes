@@ -27,7 +27,6 @@ class RecipeController extends Controller
 {
   public function index(Request $request) {
     // 検索
-    $ids = [];
     $query = Recipe::query();
     if ($request->easy) {
       $query = $query->where('is_easy', '1');
@@ -62,6 +61,14 @@ class RecipeController extends Controller
     if ($request->mainsub) {
       $query = $query->where('mainsub_id', $request->mainsub);
     }
+    if ($request->season) {
+      $ids = Season::find($request->season)->recipeIds();
+      $query = $query->whereIn('id', $ids);
+    }
+    if ($request->tag) {
+      $ids = Tag::find($request->tag)->recipeIds();
+      $query = $query->whereIn('id', $ids);
+    }
 
     // 材料名
     if ($request->mq) {
@@ -74,28 +81,14 @@ class RecipeController extends Controller
             orWhere('name2', 'like', '%' . $word . '%')->
             orWhere('name3', 'like', '%' . $word . '%')->get();
           foreach($materials as $material) {
-            //var_dump($material->name);
             $arr = $material->recipeIds();
-            //var_dump($arr);
-            //var_dump($material->name);
-            //var_dump($arr);
-            //var_dump($material->name, $arr);
             if (count($arr)) {
               $qarr = array_merge($qarr, $arr);
             }
           }
-          //var_dump($qarr);
           $query = $query->whereIn('id', $qarr);
-          //$debug = Recipe::whereIn('id', $qarr)->get();
-          //$debug = $query->get();
-          //var_dump($debug->toArray());
         }
       }
-      //var_dump($qarr);
-    //  if(count($qarr)) {
-        //$query = $query->whereIn('id', $qarr);
-
-    //  }
     }
 
     // 栄養素名
