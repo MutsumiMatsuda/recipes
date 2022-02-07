@@ -10,31 +10,31 @@ use App\Nutrient;
 use App\NutrientMaterial;
 use App\Tag;
 use App\Recipe;
-use App\RecipeMaterial;
+use App\RecipeTag;
 use Auth;
 use Storage;
 use Illuminate\Support\Facades\Validator;
 
 /**
-* 調理法コントローラー
+* 検索タグコントローラー
 */
 class TagController extends Controller {
 
   /**
-  * 調理法一覧表示アクション
+  * 検索タグ一覧表示アクション
   */
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Tag::where('name', 'like', '%' . $q . '%')->get();
+      $items = Tag::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = Tag::all();
+      $items = Tag::all()->sortBy('name');
     }
     return view('user.tag.index', compact('q', 'items'));
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 検索タグ新規登録画面表示アクション
   */
   public function add(Request $request) {
     //dd($request->all());
@@ -42,7 +42,7 @@ class TagController extends Controller {
   }
 
   /**
-  * 調理法新規登録アクション
+  * 検索タグ新規登録アクション
   */
   public function create(Request $request) {
     // バリデーションを行う
@@ -59,7 +59,7 @@ class TagController extends Controller {
 
     $data->fill($form);
     if (!$data->save()) {
-      $validator->errors()->add('fatal', '調理法の追加に失敗しました');
+      $validator->errors()->add('fatal', '検索タグの追加に失敗しました');
       return redirect('user/tag/create')->withErrors($validator)->withInput();
     }
 
@@ -67,7 +67,7 @@ class TagController extends Controller {
   }
 
   /**
-  * 調理法編集画面表示アクション
+  * 検索タグ編集画面表示アクション
   */
   public function edit(Request $request) {
     $tag = Tag::find($request->id);
@@ -78,7 +78,7 @@ class TagController extends Controller {
   }
 
   /**
-  * 調理法更新アクション
+  * 検索タグ更新アクション
   */
   public function update(Request $request) {
     // バリデーション
@@ -95,7 +95,7 @@ class TagController extends Controller {
 
     $data->fill($form);
     if (!$data->save()) {
-      $validator->errors()->add('fatal', '調理法の更新に失敗しました');
+      $validator->errors()->add('fatal', '検索タグの更新に失敗しました');
       return redirect('user/tag/edit?id=' . $request->id)->withErrors($validator)->withInput();
     }
 
@@ -103,19 +103,13 @@ class TagController extends Controller {
   }
 
     /**
-    * 調理法削除アクション
+    * 検索タグ削除アクション
     */
     public function delete(Request $request) {
 
       $data = Tag::find($request->id);
-
-      // 該当レシピの値をリセット
-      foreach($data->recipes as $recipe) {
-        $recipe->tag_id = 0;
-        $recipe->save();
-      }
-
       // データを削除
+      RecipeTag::where('tag_id', $data->id)->delete();;
       $data->delete();
 
       // 一覧へ戻る

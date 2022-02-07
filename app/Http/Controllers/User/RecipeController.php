@@ -26,16 +26,16 @@ class RecipeController extends Controller
 {
   public function add()
   {
-    $materialCategories = MaterialCategory::all();
+    $materialCategories = MaterialCategory::all()->sortBy('name');
     //dd($materialCategories);
     $materials = Material::where('material_category_id', $materialCategories->first()->id)->orderBy('name', 'asc')->get();
-    $recipeCategories = RecipeCategory::all();
-    $menus = Menu::all();
-    $howtos = Howto::all();
-    $countries = RecipeCountry::all();
-    $mainsubs = Mainsub::all();
-    $seasons = Season::all();
-    $tags = Tag::all();
+    $recipeCategories = RecipeCategory::all()->sortBy('name');
+    $menus = Menu::all()->sortBy('name');
+    $howtos = Howto::all()->sortBy('name');
+    $countries = RecipeCountry::all()->sortBy('name');
+    $mainsubs = Mainsub::all()->sortBy('name');
+    $seasons = Season::all()->sortBy('name');
+    $tags = Tag::all()->sortBy('name');
 
     $jsAry = self::mkJsMatAry($materialCategories);
     //dd($ary01);
@@ -192,15 +192,15 @@ class RecipeController extends Controller
       }
       //dd($recipe->materials->toArray());
 
-      $materialCategories = MaterialCategory::all();
+      $materialCategories = MaterialCategory::all()->sortBy('name');
       $materials = Material::where('material_category_id', $materialCategories->first()->id)->get();
-      $recipeCategories = RecipeCategory::all();
-      $menus = Menu::all();
-      $howtos = Howto::all();
-      $countries = RecipeCountry::all();
-      $mainsubs = Mainsub::all();
-      $seasons = Season::all();
-      $tags = Tag::all();
+      $recipeCategories = RecipeCategory::all()->sortBy('name');
+      $menus = Menu::all()->sortBy('name');
+      $howtos = Howto::all()->sortBy('name');
+      $countries = RecipeCountry::all()->sortBy('name');
+      $mainsubs = Mainsub::all()->sortBy('name');
+      $seasons = Season::all()->sortBy('name');
+      $tags = Tag::all()->sortBy('name');
 
       $jsAry = self::mkJsMatAry($materialCategories);
       //dd($ary01);
@@ -367,7 +367,7 @@ class RecipeController extends Controller
       }
     }
     //var_dump($query);
-    $recipes = $query->groupBy('id')->get();
+    $recipes = $query->groupBy('id')->orderBy('name', 'asc')->get();
 
     return view('user.recipe.index', compact('recipes', 'q'));
   }

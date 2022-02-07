@@ -27,9 +27,9 @@ class CategoryController extends Controller {
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = RecipeCategory::where('name', 'like', '%' . $q . '%')->get();
+      $items = RecipeCategory::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = RecipeCategory::all();
+      $items = RecipeCategory::all()->sortBy('name');
     }
     return view('user.category.index', compact('q', 'items'));
   }

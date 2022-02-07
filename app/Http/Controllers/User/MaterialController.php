@@ -32,9 +32,10 @@ class MaterialController extends Controller {
       $items = Material::where('name', 'like', '%' . $q . '%')->
         orWhere('name2', 'like', '%' . $q . '%')->
         orWhere('name3', 'like', '%' . $q . '%')->
+        orderBy('name', 'asc')->
         get();
     } else {
-      $items = Material::all();
+      $items = Material::all()->sortBy('name');
     }
     return view('user.material.index', compact('q', 'items'));
   }

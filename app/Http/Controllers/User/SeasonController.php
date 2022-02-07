@@ -16,25 +16,25 @@ use Storage;
 use Illuminate\Support\Facades\Validator;
 
 /**
-* 調理法コントローラー
+* 旬コントローラー
 */
 class SeasonController extends Controller {
 
   /**
-  * 調理法一覧表示アクション
+  * 旬一覧表示アクション
   */
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Season::where('name', 'like', '%' . $q . '%')->get();
+      $items = Season::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = Season::all();
+      $items = Season::all()->sortBy('name');
     }
     return view('user.season.index', compact('q', 'items'));
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 旬新規登録画面表示アクション
   */
   public function add(Request $request) {
     //dd($request->all());
@@ -42,7 +42,7 @@ class SeasonController extends Controller {
   }
 
   /**
-  * 調理法新規登録アクション
+  * 旬新規登録アクション
   */
   public function create(Request $request) {
     // バリデーションを行う
@@ -59,7 +59,7 @@ class SeasonController extends Controller {
 
     $data->fill($form);
     if (!$data->save()) {
-      $validator->errors()->add('fatal', '調理法の追加に失敗しました');
+      $validator->errors()->add('fatal', '旬の追加に失敗しました');
       return redirect('user/season/create')->withErrors($validator)->withInput();
     }
 
@@ -67,7 +67,7 @@ class SeasonController extends Controller {
   }
 
   /**
-  * 調理法編集画面表示アクション
+  * 旬編集画面表示アクション
   */
   public function edit(Request $request) {
     $season = Season::find($request->id);
@@ -78,7 +78,7 @@ class SeasonController extends Controller {
   }
 
   /**
-  * 調理法更新アクション
+  * 旬更新アクション
   */
   public function update(Request $request) {
     // バリデーション
@@ -103,7 +103,7 @@ class SeasonController extends Controller {
   }
 
     /**
-    * 調理法削除アクション
+    * 旬削除アクション
     */
     public function delete(Request $request) {
 

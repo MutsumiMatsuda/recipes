@@ -16,25 +16,25 @@ use Storage;
 use Illuminate\Support\Facades\Validator;
 
 /**
-* 調理法コントローラー
+* 旬コントローラー
 */
 class SeasonController extends Controller {
 
   /**
-  * 調理法一覧表示アクション
+  * 旬一覧表示アクション
   */
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Season::where('name', 'like', '%' . $q . '%')->get();
+      $items = Season::where('name', 'like', '%' . $q . '%')->orderBy('name', 'asc')->get();
     } else {
-      $items = Season::all();
+      $items = Season::all()->sortBy('name');
     }
     return view('season.index', compact('q', 'items'));
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 旬新規登録画面表示アクション
   */
   public function show(Request $request) {
     $season = Season::find($request->id);

@@ -44,9 +44,9 @@ class MenuController extends Controller
       $cond_name = $request->cond_name;
       if ($cond_name != '') {
           // 検索されたら検索結果を取得する
-          $posts = Menu::where('name', 'like', '%' . $cond_name . '%')->get();
+          $posts = Menu::where('name', 'like', '%' . $cond_name . '%')->get()->sortBy('name');
       } else {
-          $posts = Menu::all();
+          $posts = Menu::all()->sortBy('name');
       }
       return view('user.menu.index', compact(['posts', 'cond_name']));
   }

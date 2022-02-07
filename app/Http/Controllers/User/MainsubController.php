@@ -26,9 +26,9 @@ class MainsubController extends Controller {
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Mainsub::where('name', 'like', '%' . $q . '%')->get();
+      $items = Mainsub::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = Mainsub::all();
+      $items = Mainsub::all()->sortBy('name');
     }
     return view('user.mainsub.index', compact('q', 'items'));
   }

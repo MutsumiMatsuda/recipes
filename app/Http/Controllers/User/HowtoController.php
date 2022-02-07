@@ -26,9 +26,9 @@ class HowtoController extends Controller {
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Howto::where('name', 'like', '%' . $q . '%')->get();
+      $items = Howto::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = Howto::all();
+      $items = Howto::all()->sortBy('name');
     }
     return view('user.howto.index', compact('q', 'items'));
   }

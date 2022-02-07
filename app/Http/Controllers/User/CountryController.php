@@ -27,9 +27,9 @@ class CountryController extends Controller {
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = RecipeCountry::where('name', 'like', '%' . $q . '%')->get();
+      $items = RecipeCountry::where('name', 'like', '%' . $q . '%')->get()->sortBy('name');
     } else {
-      $items = RecipeCountry::all();
+      $items = RecipeCountry::all()->sortBy('name');
     }
     return view('user.country.index', compact('q', 'items'));
   }

@@ -124,7 +124,7 @@ class RecipeController extends Controller
       }
     }
     //var_dump($query);
-    $recipes = $query->groupBy('id')->get();
+    $recipes = $query->groupBy('id')->orderBy('name')->get();
 
     // 画面表示用検索条件の再設定
     $q = $request->all();

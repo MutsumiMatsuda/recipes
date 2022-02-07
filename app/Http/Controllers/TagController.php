@@ -16,25 +16,25 @@ use Storage;
 use Illuminate\Support\Facades\Validator;
 
 /**
-* 調理法コントローラー
+* 検索タグコントローラー
 */
 class TagController extends Controller {
 
   /**
-  * 調理法一覧表示アクション
+  * 検索タグ一覧表示アクション
   */
   public function index(Request $request) {
     $q = $request->q;
     if ($q != null) {
-      $items = Tag::where('name', 'like', '%' . $q . '%')->get();
+      $items = Tag::where('name', 'like', '%' . $q . '%')->orderBy('name', 'asc')->get();
     } else {
-      $items = Tag::all();
+      $items = Tag::all()->sortBy('name');
     }
     return view('tag.index', compact('q', 'items'));
   }
 
   /**
-  * 調理法新規登録画面表示アクション
+  * 検索タグ新規登録画面表示アクション
   */
   public function show(Request $request) {
     $tag = Tag::find($request->id);

@@ -28,9 +28,9 @@ class MaterialController extends Controller {
     $q = $request->q;
     if ($q != null) {
       //$items = Material::where('name', 'like', '%' . $q . '%')->orWhere('name2', 'like', '%' . $q . '%')->get();
-      $items = Material::where('name', 'like', '%' . $q . '%')->get();
+      $items = Material::where('name', 'like', '%' . $q . '%')->orderBy('name', 'asc')->get();
     } else {
-      $items = Material::all();
+      $items = Material::all()->sortBy('name');
     }
     return view('material.index', compact('q', 'items'));
   }
