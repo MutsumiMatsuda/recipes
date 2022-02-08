@@ -45,6 +45,7 @@
             <div class="col-md-2 pr-1 py-2">
               <h3>旬</h3>
               <select name ="season_id" id="select4">
+                <option value="0" @if(old('season_id') == 0) selected="selected" @endif>指定無し</option>
                 @foreach( $seasons as $item)
                   <option value="{{ $item->id }}" @if(old('season_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
                 @endforeach

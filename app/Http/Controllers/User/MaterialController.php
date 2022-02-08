@@ -41,9 +41,9 @@ class MaterialController extends Controller {
   }
 
   public function add() {
-    $categories = MaterialCategory::all();
-    $nutrients = Nutrient::all();
-    $seasons = Season::all();
+    $categories = MaterialCategory::all()->sortBy('name');
+    $nutrients = Nutrient::all()->sortBy('name');
+    $seasons = Season::all()->sortBy('name');
 
     return view('user.material.create', compact('categories', 'nutrients', 'seasons'));
   }
@@ -104,9 +104,9 @@ class MaterialController extends Controller {
       abort(404);
     }
     //dd($material->nutrients->toArray());
-    $categories = MaterialCategory::all();
-    $nutrients = Nutrient::all();
-    $seasons = Season::all();
+    $categories = MaterialCategory::all()->sortBy('name');
+    $nutrients = Nutrient::all()->sortBy('name');
+    $seasons = Season::all()->sortBy('name');
 
     return view('user.material.edit', compact('material', 'categories', 'nutrients', 'seasons'));
   }
