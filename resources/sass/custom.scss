@@ -4,9 +4,9 @@
 }
 /* ラベルのスタイル　*/
 .chkbox label {
-  padding-left:		38px;			/* ラベルの位置 */
-  font-size:		24px;
-  line-height:		24px;
+  padding-left:		20px;			/* ラベルの位置 */
+  font-size:		18px;
+  line-height:		18px;
   display:		inline-block;
   cursor:			pointer;
   position:		relative;
@@ -15,8 +15,8 @@
 /* ボックスのスタイル */
 .chkbox label:before {
   content:		'';
-  width:			24px;			/* ボックスの横幅 */
-  height:			24px;			/* ボックスの縦幅 */
+  width:			18px;			/* ボックスの横幅 */
+  height:			18px;			/* ボックスの縦幅 */
   display:		inline-block;
   position:		absolute;
   left:			0;
@@ -31,7 +31,7 @@
 /* チェックした時のスタイル */
 .chkbox input[type=checkbox]:checked + label:before {
   content:		'\2713';		/* チェックの文字 */
-  font-size:		24px;			/* チェックのサイズ */
+  font-size:		18px;			/* チェックのサイズ */
   color:			#fff;			/* チェックの色 */
   background-color:	#06f;			/* チェックした時の色 */
 }

@@ -86,15 +86,6 @@
             </select>
           </div>
 
-          <div class="col-md-2 pr-1 py-2">
-            <h3>目的</h3>
-            <select name ="tag_id">
-              <option value="0" @if(old('tag_id') == 0) selected="selected" @endif>指定無し</option>
-              @foreach( $tags as $item)
-              <option value="{{ $item->id }}" @if(old('tag_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
-              @endforeach
-            </select>
-          </div>
         </div>
 
         <h3>材料</h3>
@@ -173,20 +164,29 @@
 
         <h3>検索タグ</h3>
         <div class="row py-2">
-
-          <div class="chkbox col-md-3">
+          @foreach($tags as $item)
+            <div class="col-md-2">
+              <div class="chkbox">
+                <input type="checkbox" id="tags[{{$item->id}}]" name="tags[{{$item->id}}]" @if(old('tags' . $item->id) == $item->id) checked @endif>
+                <label for="tags[{{$item->id}}]">{{$item->name}}</label>
+              </div>
+            </div>
+          @endforeach
+        </div>
+        <div class="row py-2">
+          <div class="chkbox col-md-2">
             <input type="checkbox" id="favorite" name="is_favorite" @if (old('is_favorite') == 1) checked @endif>
             <label for="favorite">おいしい</label>
           </div>
-          <div class="chkbox col-md-3">
+          <div class="chkbox col-md-2">
             <input type="checkbox" id="easy" name="is_easy" @if (old('is_easy') == 1) checked @endif>
             <label for="easy">かんたん</label>
           </div>
-          <div class="chkbox col-md-3">
+          <div class="chkbox col-md-2">
             <input type="checkbox" id="refresh" name="is_refresh" @if (old('is_refresh') == 1) checked @endif>
             <label for="refresh">お弁当</label>
           </div>
-          <div class="chkbox col-md-3">
+          <div class="chkbox col-md-2">
             <input type="checkbox" id="healthy" name="is_healthy" @if (old('is_healthy') == 1) checked @endif>
             <label for="healthy">身体に良い</label>
           </div>

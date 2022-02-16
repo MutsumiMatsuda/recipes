@@ -134,7 +134,7 @@ class RecipeController extends Controller
     unset($form['amount']);
     unset($form['season']);
     unset($form['season_body']);
-    unset($form['tag_id']);
+    unset($form['tags']);
 
     //dd($matIds, $matAmounts, $seasonNames, $seasonBodies, $form);
 
@@ -166,11 +166,13 @@ class RecipeController extends Controller
       }
 
       // タグの登録
-      if ($request->tag_id != 0) {
-        $recipe_tag = New RecipeTag;
-        $recipe_tag->recipe_id = $recipe->id;
-        $recipe_tag->tag_id = $request->tag_id;
-        $recipe_tag->save();
+      if ($request->tags) {
+        foreach($request->tags as $tagId => $value) {
+          $recipe_tag = New RecipeTag;
+          $recipe_tag->recipe_id = $recipe->id;
+          $recipe_tag->tag_id = $tagId;
+          $recipe_tag->save();
+        }
       }
     }
 
@@ -298,7 +300,7 @@ class RecipeController extends Controller
     unset($form['amount']);
     unset($form['season']);
     unset($form['season_body']);
-    unset($form['tag_id']);
+    unset($form['tags']);
     // 該当するデータを上書きして保存する
     $recipe->fill($form);
     $res = $recipe->save();
@@ -332,13 +334,14 @@ class RecipeController extends Controller
 
       // タグの登録
       RecipeTag::where('recipe_id', $recipe->id)->delete();
-      if ($request->tag_id != 0) {
-        $recipe_tag = New RecipeTag;
-        $recipe_tag->recipe_id = $recipe->id;
-        $recipe_tag->tag_id = $request->tag_id;
-        $recipe_tag->save();
+      if ($request->tags) {
+        foreach($request->tags as $tagId => $value) {
+          $recipe_tag = New RecipeTag;
+          $recipe_tag->recipe_id = $recipe->id;
+          $recipe_tag->tag_id = $tagId;
+          $recipe_tag->save();
+        }
       }
-
     }
 
     // 何らかの原因でレシピの登録に失敗した場合は、エラーメッセージを表示して元の画面に戻る

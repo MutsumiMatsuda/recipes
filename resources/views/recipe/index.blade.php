@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="row py-2">
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>献立</h3>
               <select name ="menu">
                 <option value="0" @if($q['menu'] == 0) selected="selected" @endif>指定無し</option>
@@ -39,7 +39,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>カテゴリ</h3>
               <select name ="category">
                 <option value="0" @if($q['category'] == 0) selected="selected" @endif>指定無し</option>
@@ -48,7 +48,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>調理法</h3>
               <select name ="howto">
                 <option value="0" @if($q['howto'] == 0) selected="selected" @endif>指定無し</option>
@@ -57,7 +57,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>国別</h3>
               <select name ="country">
                 <option value="0" @if($q['country'] == 0) selected="selected" @endif>指定無し</option>
@@ -66,7 +66,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>料理分類</h3>
               <select name ="mainsub">
                 <option value="0" @if($q['mainsub'] == 0) selected="selected" @endif>指定無し</option>
@@ -75,10 +75,7 @@
     　　　　　　@endforeach
               </select>
             </div>
-          </div>
-
-          <div class="row py-2">
-            <div class="col-md-2 pr-1 py-2">
+            <div class="col-md-2 py-2">
               <h3>旬</h3>
               <select name ="season">
                 <option value="0" @if($q['season'] == 0) selected="selected" @endif>指定無し</option>
@@ -87,19 +84,20 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2 pr-1 py-2">
-              <h3>目的</h3>
-              <select name ="tag">
-                <option value="0" @if($q['category'] == 0) selected="selected" @endif>指定無し</option>
-                @foreach( $tags as $item)
-                  <option value="{{ $item->id }}" @if($q['tag'] == $item->id) selected="selected" @endif>{{ $item->name }}</option>
-                @endforeach
-              </select>
-            </div>
           </div>
 
           <div class="row py-2">
-            <h5 class="col-md-2">チェック</h5>
+              @foreach($tags as $item)
+                <div class="col-md-2 py-2">
+                  <div class="chkbox">
+                    <input type="checkbox" id="tags[{{$item->id}}]" name="tags[{{$item->id}}]" @if($q['tags'][$item->id]) checked @endif>
+                    <label for="tags[{{$item->id}}]">{{$item->name}}</label>
+                  </div>
+                </div>
+              @endforeach
+          </div>
+
+          <div class="row py-2">
             <div class="col-md-2">
               <div class="chkbox">
                 <input type="checkbox" id="easy" name="easy" @if($q['easy'] == true) checked @endif>
@@ -129,7 +127,7 @@
             </div>
           </div>
           <div class="row py-1">
-            <h5 class="col-md-2">一発検索</h5>
+            {{--<h5 class="col-md-2">一発検索</h5>--}}
             <div class="col-md-2">
               <input type="submit" class="btn btn-primary" value="かんたん" onclick="document.getElementById('easy').checked=true; document.search.submit();">
             </div>

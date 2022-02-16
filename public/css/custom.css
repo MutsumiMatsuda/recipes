@@ -9,10 +9,10 @@
 /* ラベルのスタイル　*/
 
 .chkbox label {
-  padding-left: 38px;
+  padding-left: 20px;
   /* ラベルの位置 */
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 18px;
   display: inline-block;
   cursor: pointer;
   position: relative;
@@ -22,9 +22,9 @@
 
 .chkbox label:before {
   content: "";
-  width: 24px;
+  width: 18px;
   /* ボックスの横幅 */
-  height: 24px;
+  height: 18px;
   /* ボックスの縦幅 */
   display: inline-block;
   position: absolute;
@@ -45,7 +45,7 @@
 .chkbox input[type=checkbox]:checked + label:before {
   content: "\2713";
   /* チェックの文字 */
-  font-size: 24px;
+  font-size: 18px;
   /* チェックのサイズ */
   color: #fff;
   /* チェックの色 */

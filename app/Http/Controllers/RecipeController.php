@@ -17,6 +17,7 @@ use App\RecipeCountry;
 use App\Mainsub;
 use App\Season;
 use App\Tag;
+use App\RecipeTag;
 use Auth;
 use Storage;
 use DB;
@@ -65,8 +66,8 @@ class RecipeController extends Controller
       $ids = Season::find($request->season)->recipeIds();
       $query = $query->whereIn('id', $ids);
     }
-    if ($request->tag) {
-      $ids = Tag::find($request->tag)->recipeIds();
+    if ($request->tags) {
+      $ids = RecipeTag::recipeIds($request->tags);
       $query = $query->whereIn('id', $ids);
     }
 
@@ -126,6 +127,15 @@ class RecipeController extends Controller
     //var_dump($query);
     $recipes = $query->groupBy('id')->orderBy('name')->get();
 
+    // 検索条件表示用コレクション取得
+    $categories = RecipeCategory::all();
+    $menus = Menu::all();
+    $howtos = Howto::all();
+    $countries = RecipeCountry::all();
+    $mainsubs = Mainsub::all();
+    $seasons = Season::all();
+    $tags = Tag::all();
+
     // 画面表示用検索条件の再設定
     $q = $request->all();
 
@@ -143,16 +153,11 @@ class RecipeController extends Controller
     $q['country'] = !$request->country ? 0 : $request->country;
     $q['mainsub'] = !$request->mainsub ? 0 : $request->mainsub;
     $q['season'] = !$request->season ? 0 : $request->season;
-    $q['tag'] = !$request->tag ? 0 : $request->tag;
+    $q['tags'] = [];
+    foreach($tags as $tag) {
+      $q['tags'][$tag->id] = $request->tags && array_key_exists($tag->id, $request->tags) ? $tag->id : 0;
+    }
 
-    //dd($q);
-    $categories = RecipeCategory::all();
-    $menus = Menu::all();
-    $howtos = Howto::all();
-    $countries = RecipeCountry::all();
-    $mainsubs = Mainsub::all();
-    $seasons = Season::all();
-    $tags = Tag::all();
 
     return view('recipe.index',
       compact(

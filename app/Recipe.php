@@ -68,6 +68,11 @@ class Recipe extends Model
     return $tag;
   }
 
+  // レシピが指定のタグを持っているかの真偽値を返す
+  public function hasTag($id) {
+    return count($this->tags->where('id', $id)) ? true : false;
+  }
+
   public function nutrients() {
     $materials = $this->materials;
     //return $materials;
