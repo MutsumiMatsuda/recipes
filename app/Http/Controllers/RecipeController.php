@@ -73,7 +73,8 @@ class RecipeController extends Controller
 
     // 材料名
     if ($request->mq) {
-      $words = array_map('trim', explode(' ', trim($request->mq)));
+      //$words = array_map('trim', explode(' ', trim($request->mq)));
+      $words = self::mkKeywordAry($request->mq);
       //dd($words);
       foreach($words as $word) {
         $qarr = [];
@@ -95,7 +96,6 @@ class RecipeController extends Controller
     // 栄養素名
     if ($request->nq) {
       $words = array_map('trim', explode(' ', trim($request->nq)));
-      //dd($words);
       foreach($words as $word) {
         if (!Utl::isNullOrEmpty($word)) {
           $col = Nutrient::where('name', 'like', '%' . $word . '%')->get();

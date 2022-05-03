@@ -14,6 +14,26 @@ class Controller extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+  // 検索文字列の区切り文字定義
+  const _DELIM = ' ';
+  private static $alt_delimiters = ['、', '＆', '　', ',', '&'];
+  private static $replacers = [self::_DELIM, self::_DELIM, self::_DELIM, self::_DELIM, self::_DELIM];
+
+  /**
+  * 検索文字列を分割した配列を作成する
+  * 区切り文字は、以下の六種類とする
+  * 全角[、][＆][　](全角スペース)
+  * 半角[,][&][ ](半角スペース)
+  *
+  * @param  リクエストから取り出した検索文字列
+  * @return 検索文字列の配列
+  */
+  protected static function mkKeywordAry($objstr) {
+
+    $target = str_replace(self::$alt_delimiters, self::$replacers, trim($objstr));
+    return array_map('trim', explode(self::_DELIM, $target));
+  }
+
   /**
   * 材料のJavaScript配列を作成する
   */
