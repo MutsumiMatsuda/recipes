@@ -15,4 +15,8 @@ class MaterialCategory extends Model
   public function materials() {
     return $this->hasMany('App\Material');
   }
+  
+  public function getSortedMaterials() {
+    return Material::getByCategory($this->id);
+  }
 }

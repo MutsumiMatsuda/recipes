@@ -107,3 +107,9 @@ Route::get('tag', 'TagController@index')->name('p_tag');
 Route::get('tag/show', 'TagController@show');
 
 Route::get('/', 'RecipeController@index')->name('toppage');
+
+Route::get('/phpinfo', function () {
+    return view('phpinfo');
+});
+
+Route::get('test', 'TopPageController@test')->name('test');

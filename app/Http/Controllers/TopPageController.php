@@ -34,4 +34,11 @@ class TopPageController extends Controller
     return view('toppage', compact('keywords','keyword','recipes','recipe_categories', 'difficulties', 'feelings', 'how_tos', 'materials', 'menus', 'nutrients', 'nutrient_materials','tastes'));
   }
 	
+	public function test(Request $req) {
+	  $rs = Material::getByCategory(5);
+	  foreach($rs as $item) {
+	    echo $item->name . "</br>";
+	  }
+	  exit();
+	}
 }

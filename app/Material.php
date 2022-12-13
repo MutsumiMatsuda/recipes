@@ -34,6 +34,22 @@ class Material extends Model
   public function recipeIds() {
     return $this->recipes->pluck('id')->toArray();
   }
+  
+  // 指定カテゴリの材料を名前の焦準で取得
+  public static function getByCategory($catId) {
+    $rs = self::where('material_category_id', $catId)->get();
+    $tmp = $ret = [];
+    foreach($rs as $r) {
+      $tmp[mb_substr($r->name, 0, 1)] = $r;
+    }
+    //dd($tmp);
+
+    ksort($tmp);
+    foreach($tmp as $r) {
+      $ret[] = $r;
+    }
+    return $ret;
+  }
 }
 
 ?>

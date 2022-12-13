@@ -112,7 +112,7 @@
           <div class="col-md-5 py-2">
             <select name ="{{ $matSelName }}" id="{{ $selId2 }}">
               <option value="0" @if(old($oldMatSelName) == 0) selected="selected" @endif>選んで下さい</option>
-              @foreach($curMatCat->materials as $material)
+              @foreach($curMatCat->getSortedMaterials() as $material)
               <option value="{{ $material->id }}" @if(old($oldMatSelName) == $material->id) selected="selected" @endif>{{ $material->name }}</option>
               @endforeach
             </select>
