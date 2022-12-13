@@ -108,6 +108,7 @@
               $defMatCatId = $curRecMat ? $curRecMat->material->material_category_id : $materialCategories->first()->id;
               $defMatId = $curRecMat ? $curRecMat->material->id : 0;
               $defAmount = $i < count($recMats) ? $recMats[$i]['amount'] : '';
+              $curMatCat = $curRecMat ? $curRecMat->material->category : $materialCategories->first();
 
               $catSelName = 'material_category_id[' . $i . ']';
               $oldCatSelName = 'material_category_id.' . $i;
@@ -122,7 +123,7 @@
               <div class="col-md-3 py-2">
                 <select name ="{{ $catSelName }}" id="{{ $selId1 }}" onChange="swapSelectOptions('{{ $selId1 }}', '{{ $selId2 }}')">
                   @foreach($materialCategories as $category)
-                    <option value="{{ $category->id }}" @if(old($oldCatSelName, $defMatCatId) == $category->id) selected="selected" @php $curMatCat = $category; @endphp @endif>{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" @if(old($oldCatSelName, $defMatCatId) == $category->id) selected="selected" @endif>{{ $category->name }}</option>
                   @endforeach
                 </select>
               </div>

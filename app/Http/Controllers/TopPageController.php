@@ -35,7 +35,8 @@ class TopPageController extends Controller
   }
 	
 	public function test(Request $req) {
-	  $rs = Material::getByCategory(5);
+	  $rs = Material::getByCategory(3);
+	  echo count($rs) . "件</br>";
 	  foreach($rs as $item) {
 	    echo $item->name . "</br>";
 	  }

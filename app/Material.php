@@ -38,9 +38,14 @@ class Material extends Model
   // 指定カテゴリの材料を名前の焦準で取得
   public static function getByCategory($catId) {
     $rs = self::where('material_category_id', $catId)->get();
+    //echo count($rs) . "件</br>"; // debug
     $tmp = $ret = [];
+    
+    // キーの重複を避けるため名前の一文字目＋連番でソートする
+    $i = 0;
     foreach($rs as $r) {
-      $tmp[mb_substr($r->name, 0, 1)] = $r;
+      $tmp[mb_substr($r->name, 0, 1) . $i] = $r;
+      $i++;
     }
     //dd($tmp);
 
