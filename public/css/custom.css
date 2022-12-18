@@ -34,7 +34,8 @@
   border-radius: 6px 6px 6px 6px;
 }
 
-/* 元のチェックボックスを表示しない */
+/* チェックボックスを大きく
+   元のチェックボックスを表示しない */
 
 .chkbox input[type=checkbox] {
   display: none;
@@ -51,5 +52,48 @@
   /* チェックの色 */
   background-color: #06f;
   /* チェックした時の色 */
+}
+
+/* ラジオボタンを大きく */
+
+.radiobutton label {
+  padding: 0 0 0 24px;
+  /* ラベルの位置 */
+  font-size: 16px;
+  line-height: 28px;
+  /* ボタンのサイズに合わせる */
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.radiobutton label:before {
+  content: "";
+  width: 28px;
+  /* ボタンの横幅 */
+  height: 28px;
+  /* ボタンの縦幅 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00f;
+  border-radius: 50%;
+}
+
+.radiobutton input[type=radio] {
+  display: none;
+}
+
+.radiobutton input[type=radio]:checked + label:after {
+  content: "";
+  width: 10px;
+  /* マークの横幅 */
+  height: 10px;
+  /* マークの縦幅 */
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  background-color: #fff;
+  border-radius: 50%;
 }
 

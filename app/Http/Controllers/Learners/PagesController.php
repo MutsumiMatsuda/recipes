@@ -15,6 +15,8 @@ use App\Nutrient;
 use App\NutrientMaterial;
 use App\Taste;
 
+use App\Models\SelQOpt;
+
 
 class PagesController extends Controller
 {
@@ -35,7 +37,25 @@ class PagesController extends Controller
   }
 
   public function sakura(Request $req) {
-    return view('learner.sakura');
+    $q = "テルミサルタン";
+    $opt = ["1" => "ミカムロ", "2" => "オキシテトラコーン", "3" => "ジルムロ", "4" => "イルアミクス", "5" => "アマルエット"];
+    $sel = [];
+    foreach($opt as $key => $val) {
+      $sel[] = new SelQOpt($key, $val);
+    }
+    //dd($sel);
+    return view('learner.sakura', compact(['q', 'sel']));
+  }
+
+  public function checkAnswer(Request $req) {
+    $q = "テルミサルタン";
+    $opt = ["1" => "ミカムロ", "2" => "オキシテトラコーン", "3" => "ジルムロ", "4" => "イルアミクス", "5" => "アマルエット"];
+    $sel = [];
+    foreach($opt as $key => $val) {
+      $sel[] = new SelQOpt($key, $val);
+    }
+
+    return view('learner.sakura', compact(['q', 'sel']));
   }
 
   public function stars(Request $req) {
