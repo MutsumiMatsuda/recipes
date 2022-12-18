@@ -113,3 +113,10 @@ Route::get('/phpinfo', function () {
 });
 
 Route::get('test', 'TopPageController@test')->name('test');
+
+Route::get('learner', 'Learners\PagesController@sakura');
+Route::get('learner/sakura', 'Learners\PagesController@sakura')->name('sakura');
+Route::get('learner/stars', 'Learners\PagesController@stars')->name('stars');
+Route::get('learner/momiji', 'Learners\PagesController@momiji')->name('momiji');
+Route::get('learner/confetti', 'Learners\PagesController@confetti')->name('confetti');
+Route::get('learner/starwars', 'Learners\PagesController@starwars')->name('starwars');

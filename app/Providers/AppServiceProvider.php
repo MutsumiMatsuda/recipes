@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      //if(env('APP_ENV') != 'mu') {
+      if(env('APP_ENV') != 'mu') {
         \URL::forceScheme('https');
-      //}
+      }
     }
 }
