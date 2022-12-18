@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-4 mx-auto card">
         <div class="row py-4">
-          <div class="col-md-8 mx-auto card bg-light"  style="color : black;">
+          <div class="col-md-6 mx-auto card bg-light"  style="color : black;">
             <div class="align-items-center text-center" style="font-size: 20px; color: black">同成分の薬剤選択</div>
           </div>
         </div>
