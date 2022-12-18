@@ -32,12 +32,13 @@
           @foreach($sel as $val)
           @php $tagId = 'sel01' . $i; @endphp
           <div class="form-group row" style="font-size: 20; color: white;">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-10 mx-auto">
               <div class="row card @if($i % 2) bg-primary @else bg-info @endif form-check">
                 <div class="col-md-1">
-                  <input type="radio" class="form-check-input form-control form-control-md" id="{{ $tagId }}" name="ans01" value="{{ $val->id }}">
+                  <input type="radio" class="form-check-input form-control form-control-sm" id="{{ $tagId }}" name="ans01" value="{{ $val->id }}">
                 </div>
-                <div class="col-md-11">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                   <label class="form-check-label form-control-lg" for="{{ $tagId }}">{{ $val->name }}</label>
                 </div>
               </div>
