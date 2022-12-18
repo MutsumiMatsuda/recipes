@@ -16,7 +16,7 @@
 <div id="wrapper">
   <main class="py-4">
     <div class="row">
-      <div class="col-md-4 mx-auto card">
+      <div class="col-md-3 mx-auto card">
         <div class="row py-4">
           <div class="col-md-6 mx-auto card bg-light"  style="color : black;">
             <div class="align-items-center text-center" style="font-size: 20px; color: black">同成分の薬剤選択</div>
@@ -35,10 +35,10 @@
             <div class="col-md-8 mx-auto">
               <div class="row card @if($i % 2) bg-primary @else bg-info @endif form-check">
                 <div class="col-md-1">
-                <input type="radio" class="form-check-input form-control form-control-md" id="{{ $tagId }}" name="ans01" value="{{ $val->id }}">
+                  <input type="radio" class="form-check-input form-control form-control-md" id="{{ $tagId }}" name="ans01" value="{{ $val->id }}">
                 </div>
                 <div class="col-md-11">
-                <label class="form-check-label form-control-lg" for="{{ $tagId }}">{{ $val->name }}</label>
+                  <label class="form-check-label form-control-lg" for="{{ $tagId }}">{{ $val->name }}</label>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
           @endforeach
           @csrf
           <div class="form-group row py-4">
-            <div class="col-md-2 mx-auto">
+            <div class="col-md-3 mx-auto">
               <button type="submit" class="btn-lg btn-outline-dark">回答</button>
             </div>
           </div>
