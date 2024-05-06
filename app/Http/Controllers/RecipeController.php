@@ -125,7 +125,8 @@ class RecipeController extends Controller
       }
     }
     //var_dump($query);
-    $recipes = $query->groupBy('id')->orderBy('name')->get();
+    //$recipes = $query->groupBy('id')->orderBy('name')->get();
+    $recipes = $query->orderBy('name')->get();
 
     // 検索条件表示用コレクション取得
     $categories = RecipeCategory::all();

@@ -33,10 +33,11 @@
 <body>
   <div id="app">
     {{-- 画面上部に表示するナビゲーションバーです。 --}}
+    <div class='fixed-top'>
     <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/learner') }}">
-          薬剤師問題集
+          問題集
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -53,7 +54,7 @@
             <!-- Authentication Links -->
             {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
             @guest
-            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+            <li><a class="nav-link" href="/learner/add">問題登録</a></li>
             {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
             @else
             <li><a class="nav-link" href="/recipe">一般画面へ</a></li>
@@ -91,6 +92,7 @@
       </div>
     </div>
   </nav>
+  </div>
   {{-- ここまでナビゲーションバー --}}
   @yield('content')
 </div>

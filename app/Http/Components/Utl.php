@@ -63,13 +63,13 @@ class Utl
   }
 
   /**
-  * ニュース画像無しの場合のファイル名を取得
+  * 画像無しの場合のファイル名を取得
   *
   * @param  void
-  * @return ニュース画像無しの場合のファイル名
+  * @return 画像無しの場合のファイル名
   */
-  public static function getNoNewsImgFileName() {
-    return env('NO_NEWS_IMAGE_FILENAME');
+  public static function getNoDishImgFileName() {
+    return env('NO_DISH_IMAGE_FILENAME');
   }
 
   /**
@@ -100,7 +100,7 @@ class Utl
   */
   public static function isS3() {
     //return self::isSameStr(env('FILESYSTEM_DRIVER'), env('FILESYSTEM_DRIVER_TYPE_S3'));
-    return true;
+    return false;
   }
 
   /**
@@ -113,7 +113,7 @@ class Utl
   public static function imgPathRecipe($filename) {
 
     if (self::isS3()) {
-      $ret = env('AWS_URL') . '/' . 'public/image/recipe' . '/' . (self::isNullOrEmpty($filename) ? self::getNoNewsImgFileName() : $filename);
+      $ret = env('AWS_URL') . '/' . 'public/image/recipe' . '/' . (self::isNullOrEmpty($filename) ? self::getNoDishImgFileName() : $filename);
     } else {
       $ret = asset('storage/image/recipe/' . $filename);
     }
@@ -130,7 +130,7 @@ class Utl
   public static function imgPathRecipeHowto($filename) {
 
     if (self::isS3()) {
-      $ret = env('AWS_URL') . '/' . 'public/image/recipe/howto' . '/' . (self::isNullOrEmpty($filename) ? self::getNoNewsImgFileName() : $filename);
+      $ret = env('AWS_URL') . '/' . 'public/image/recipe/howto' . '/' . (self::isNullOrEmpty($filename) ? self::getNoDishImgFileName() : $filename);
     } else {
       $ret = asset('storage/image/recipe/howto/' . $filename);
     }
@@ -147,7 +147,7 @@ class Utl
   public static function imgPathMenu($filename) {
 
     if (self::isS3()) {
-      $ret = env('AWS_URL') . '/' . 'public/image/menu' . '/' . (self::isNullOrEmpty($filename) ? self::getNoNewsImgFileName() : $filename);
+      $ret = env('AWS_URL') . '/' . 'public/image/menu' . '/' . (self::isNullOrEmpty($filename) ? self::getNoDishImgFileName() : $filename);
     } else {
       $ret = asset('storage/image/menu/' . $filename);
     }

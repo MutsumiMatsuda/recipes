@@ -112,9 +112,16 @@ Route::get('/phpinfo', function () {
     return view('phpinfo');
 });
 
-Route::get('test', 'TopPageController@test')->name('test');
+Route::get('test', 'TopPageController@test')->name('qtop');
 
-Route::get('learner', 'Learners\PagesController@sakura');
+Route::get('learner', 'Learners\PagesController@qTop');
+Route::get('learner/detail', 'Learners\PagesController@qDetail');
+Route::post('learner/check', 'Learners\PagesController@qCheck');
+Route::get('learner/add', 'Learners\PagesController@add');
+Route::post('learner/add', 'Learners\PagesController@create');
+Route::get('learner/edit', 'Learners\PagesController@edit');
+Route::post('learner/update', 'Learners\PagesController@update');
+
 Route::get('learner/sakura', 'Learners\PagesController@sakura')->name('sakura');
 Route::post('learner/sakura', 'Learners\PagesController@checkAnswer');
 Route::get('learner/stars', 'Learners\PagesController@stars')->name('stars');
