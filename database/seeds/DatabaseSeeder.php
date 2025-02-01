@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
           ],
         ]);
         */
+        /*
         \DB::table('seasons')->insert([
           [
               'id' => 1,
@@ -113,5 +114,14 @@ class DatabaseSeeder extends Seeder
               'updated_at' => new DateTime(),
           ],
         ]);
+        DB::table('users')->insert([
+        [
+          'name' => '松田睦',
+          'email' => 'matsuda_mutsumi@r3.dion.ne.jp',
+          'password' => Hash::make('lovekayo'),
+        ],
+        */
+      ]);
+
     }
 }

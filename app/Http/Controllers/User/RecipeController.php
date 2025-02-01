@@ -370,7 +370,8 @@ class RecipeController extends Controller
       }
     }
     //var_dump($query);
-    $recipes = $query->groupBy('id')->orderBy('name', 'asc')->get();
+    //$recipes = $query->groupBy('id')->orderBy('name', 'asc')->get();
+    $recipes = $query->orderBy('name', 'asc')->get();
 
     return view('user.recipe.index', compact('recipes', 'q'));
   }

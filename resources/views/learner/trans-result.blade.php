@@ -61,7 +61,6 @@ if (window.speechSynthesis) {
 function setVoices() {
   if (voices.length) return;
   voices = speechSynthesis.getVoices();
-  if (!voices.length) return;
 }
 
 function speak() {
@@ -94,7 +93,6 @@ function speak() {
       // 発言を再生
       window.speechSynthesis.speak(uttr);
     }
-
   }
 }
 </script>

@@ -1,2 +1,2 @@
 #!bin/bash
-pg_dump -U postgres > backup.sql
+pg_dump -U postgres -d recipes > backup.sql
