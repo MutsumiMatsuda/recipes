@@ -112,6 +112,10 @@ Route::get('/phpinfo', function () {
     return view('phpinfo');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+  Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
+});
+
 Route::get('test', 'TopPageController@test')->name('qtop');
 
 Route::get('learner', 'Learners\PagesController@qTop');

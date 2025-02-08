@@ -16,7 +16,7 @@ use App\NutrientMaterial;
 use App\Taste;
 
 use App\Models\SelQOpt;
-use App\LTransQs;
+use App\LearnQuestion;
 
 use Carbon\Carbon;
 
@@ -26,7 +26,7 @@ class PagesController extends Controller
    * 問題一覧ページ表示
    */
   public function qtop(Request $request) {
-    $list = LTransQs::all()->sortBy('a');
+    $list = LearnQuestion::all()->sortBy('a');
     //dd($list);
     return view('learner.trans-index', compact(['list']));
   }
@@ -35,7 +35,7 @@ class PagesController extends Controller
    * 問題詳細ページ表示
    */
    public function qDetail(Request $rq) {
-    $q = LTransQs::find($rq->id);
+    $q = LearnQuestion::find($rq->id);
     return view('learner.trans-detail', compact(['q']));
   }
   
@@ -43,8 +43,8 @@ class PagesController extends Controller
    * 問題の解答チェック
    */
    public function qCheck(Request $rq) {
-    $this->validate($rq, LTransQs::$ansRules);
-    $q = LTransQs::find($rq->id);
+    $this->validate($rq, LearnQuestion::$ansRules);
+    $q = LearnQuestion::find($rq->id);
     $result = false;
     if ($q->a == $rq->a) {
       $result = true;
@@ -63,8 +63,8 @@ class PagesController extends Controller
    * 問題新規登録
    */
    public function create(Request $rq) {
-    $this->validate($rq, LTransQs::$rules);
-    $q = new LTransQs();
+    $this->validate($rq, LearnQuestion::$rules);
+    $q = new LearnQuestion();
     $q->fill($rq->all());
     $q->save();
     return redirect('learner/');
@@ -74,7 +74,7 @@ class PagesController extends Controller
    * 問題編集ページ表示
    */
    public function edit(Request $rq) {
-    $q = LTransQs::find($rq->id);
+    $q = LearnQuestion::find($rq->id);
     return view('learner.trans-edit', compact(['q']));
   }
 
@@ -82,8 +82,8 @@ class PagesController extends Controller
    * 問題編集ページ表示
    */
    public function update(Request $rq) {
-    $this->validate($rq, LTransQs::$rules);
-    $q = LTransQs::find($rq->id);
+    $this->validate($rq, LearnQuestion::$rules);
+    $q = LearnQuestion::find($rq->id);
     $q->fill($rq->all());
     $q->updated_at = Carbon::now();
     //dd($q);
